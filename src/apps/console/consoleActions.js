@@ -5,6 +5,10 @@ import store from 'store';
 export const applyCommand = (action) => {
     if(action){
         const command = action.split(' ');
+        console.log(command);
+        console.log(command[0]);
+        console.log(command[1]);
+        console.log(command[2]);
         switch(command[0]){
             case 'help':
                 return (
@@ -44,13 +48,13 @@ export const applyCommand = (action) => {
                         if(command[2]){
                             switch(command[2]){
                                 case '-v':
-                                    return store.getState()[command[1].toString()].version;
+                                    return store.getState().appsReducer[command[1].toString()].version;
                                 default:
                                     return `parameter not recognized`;
                             }
                         } else {
-                            store.dispatch(openApp(command[1]))
-                            if(!store.getState()[command[1].toString()].isOpen){
+                            store.dispatch(openApp(command[1]));
+                            if(!store.getState().appsReducer[command[1].toString()].isOpen){
                                 return `Closing ${command[1]}...`;
                             }
                                 return `Opening ${command[1]}...`;
@@ -59,13 +63,13 @@ export const applyCommand = (action) => {
                         if(command[2]){
                             switch(command[2]){
                                 case '-v':
-                                    return store.getState()[command[1].toString()].version;
+                                    return store.getState().appsReducer[command[1].toString()].version;
                                 default:
                                     return `parameter not recognized`;
                             }
                         } else {
-                            store.dispatch(openApp(command[1]))
-                            if(!store.getState()[command[1].toString()].isOpen){
+                            store.dispatch(openApp(command[1]));
+                            if(!store.getState().appsReducer[command[1].toString()].isOpen){
                                 return `Closing ${command[1]}...`;
                             }
                                 return `Opening ${command[1]}...`;
@@ -74,13 +78,13 @@ export const applyCommand = (action) => {
                         if(command[2]){
                             switch(command[2]){
                                 case '-v':
-                                    return store.getState()[command[1].toString()].version;
+                                    return store.getState().appsReducer[command[1].toString()].version;
                                 default:
                                     return `parameter not recognized`;
                             }
                         } else {
-                            store.dispatch(openApp(command[1]))
-                            if(!store.getState()[command[1].toString()].isOpen){
+                            store.dispatch(openApp(command[1]));
+                            if(!store.getState().appsReducer[command[1].toString()].isOpen){
                                 return `Closing ${command[1]}...`;
                             }
                                 return `Opening ${command[1]}...`;
@@ -89,13 +93,13 @@ export const applyCommand = (action) => {
                         if(command[2]){
                             switch(command[2]){
                                 case '-v':
-                                    return store.getState()[command[1].toString()].version;
+                                    return store.getState().appsReducer[command[1].toString()].version;
                                 default:
                                     return `parameter not recognized`;
                             }
                         } else {
-                            store.dispatch(openApp(command[1]))
-                            if(!store.getState()[command[1].toString()].isOpen){
+                            store.dispatch(openApp(command[1]));
+                            if(!store.getState().appsReducer[command[1].toString()].isOpen){
                                 return `Closing ${command[1]}...`;
                             }
                                 return `Opening ${command[1]}...`;

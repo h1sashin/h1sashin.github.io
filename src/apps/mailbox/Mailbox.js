@@ -14,6 +14,7 @@ const MessageContainer = styled.div`
     height: calc(100% - 32px);
     display: flex;
     flex-direction: column;
+    color: ${props => props.theme.text};
 `;
 
 const Title = styled.h1`
@@ -121,6 +122,10 @@ const Mailbox = ({ mailbox }) => {
     );
 }
 
-const mapStateToProps = ({ mailbox }) => ({ mailbox });
+const mapStateToProps = (state) => {
+    return {
+        mailbox: state.appsReducer.mailbox
+    }
+}
 
 export default connect(mapStateToProps)(Mailbox);

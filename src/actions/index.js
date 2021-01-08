@@ -42,3 +42,55 @@ export const updatePosition = (app, e, d) => {
         }
     }
 }
+
+export const switchMode = (mode) => {
+    return {
+        type: 'SWITCH_MODE',
+        payload: { mode }
+    }
+}
+
+export const switchStyle = (style) => {
+    return {
+        type: 'SWITCH_STYLE',
+        payload: { style }
+    }
+}
+
+export const changePrimary = (color) => {
+    return {
+        type: 'CHANGE_PRIMARY',
+        payload: { color }
+    }
+}
+
+export const updateTaskbarTransparency = (transparency) => {
+    const updatedTransparency = (transparency/2 + 50)/100;
+    return {
+        type: 'UPDATE_TASKBAR_TRANSPARENCY',
+        payload: {
+            transparency: updatedTransparency
+        }
+    }
+}
+
+export const switchIconType = (type) => {
+    return {
+        type: 'SWITCH_ICON_TYPE',
+        payload: { type }
+    }
+} 
+
+export const switchDateHide = (hide) => {
+    return {
+        type: 'SWITCH_DATE_HIDE',
+        payload: { hide }
+    }
+}
+
+export const switchDateFormat = (format) => {
+    return {
+        type: 'SWITCH_DATE_FORMAT',
+        payload: { format }
+    }
+} 

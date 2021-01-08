@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import { portfolioData, resumeData } from 'data';
 import styled, { css } from 'styled-components';
 import App from 'apps/App';
-import file from 'assets/img/files/description-black.svg';
+import file from 'assets/img/places/description-black.svg';
 import SidebarStyled from 'components/atoms/SidebarStyled';
 import Child from 'components/atoms/Child';
 import ContentStyled from 'components/atoms/ContentStyled';
@@ -15,7 +15,7 @@ const Button = styled.button`
     background: transparent;
     margin: 0;
     margin-left: -35px;
-    color: #FFFFFF;
+    color: ${props => props.theme.text};
     ${props => props.portfolio && css`
         margin-left: -10px;
     `}
@@ -69,14 +69,15 @@ const TopBar = styled.div`
         font-size: 1em;
         margin-right: 20px;
     }
-    background: #191B21;
+    background: ${props => props.theme.primary};
+    color: ${props => props.theme.text};
 `;
 
 const Link = styled.a`
     margin-right: 20px;
     ${props => props.linkExists === '' && css`
         text-decoration: line-through;
-        color: white;;
+        color: ${props.theme.text};
     `}
 `;
 
@@ -90,6 +91,7 @@ const Skill = styled.div`
     align-items: center;
     justify-content: center;
     margin-top: 32px;
+    color: ${props => props.theme.text};
     img {
         height: 75%;
     }
@@ -374,6 +376,10 @@ const Files = ({ files }) => {
     );
 }
 
-const mapStateToProps = ({ files }) => ({ files });
+const mapStateToProps = (state) => {
+    return {
+        files: state.appsReducer.files
+    }
+}
 
 export default connect(mapStateToProps)(Files);

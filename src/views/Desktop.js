@@ -1,13 +1,15 @@
 import React from 'react';
-import styled from 'styled-components';
+import styled, { ThemeProvider } from 'styled-components';
+import { lightTheme, darkTheme } from 'themes/Themes';
 import Taskbar from 'components/organisms/Taskbar';
 import Files from 'apps/files/Files';
 import Settings from 'apps/settings/Settings';
 import Mailbox from 'apps/mailbox/Mailbox';
 import Console from 'apps/console/Console';
+import { connect } from 'react-redux';
 
 const DesktopStyled = styled.div`
-    height: 96vh;
+    height: 95vh;
     width: 100vw;
     position: absolute;
     left: 0;
@@ -24,18 +26,26 @@ const System = styled.div`
     overflow: hidden;
 `;
 
-const Desktop = () => {
+const Desktop = ({ theme }) => {
     return(
-        <System>
-            <DesktopStyled>
-                <Console />
-                <Mailbox />
-                <Files />
-                <Settings />
-            </DesktopStyled>
-            <Taskbar />
-        </System>
+        <ThemeProvider theme={theme === 'dark' ? darkTheme : lightTheme}>
+            <System>
+                <DesktopStyled>
+                    <Console />
+                    <Mailbox />
+                    <Files />
+                    <Settings />
+                </DesktopStyled>
+                <Taskbar />
+            </System>
+        </ThemeProvider>
     );
 }
 
-export default Desktop;
+const mapStateToProps = (state) => {
+    return {
+        theme: state.themeReducer.mode
+    }
+}
+
+export default connect(mapStateToProps)(Desktop);

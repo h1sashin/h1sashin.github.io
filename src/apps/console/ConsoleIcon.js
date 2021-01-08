@@ -9,6 +9,10 @@ const ConsoleIcon = ({ console }) => {
     );
 }
 
-const mapStateToProps = ({ console }) => ({ console });
+const mapStateToProps = (state) => {
+    return {
+        console: state.appsReducer.console
+    }
+}
 
 export default connect(mapStateToProps)(ConsoleIcon);

@@ -9,6 +9,11 @@ const FilesIcon = ({ files }) => {
     );
 }
 
-const mapStateToProps = ({ files }) => ({ files });
+const mapStateToProps = (state) => {
+    return {
+        files: state.appsReducer.files
+    }
+}
+
 
 export default connect(mapStateToProps)(FilesIcon);

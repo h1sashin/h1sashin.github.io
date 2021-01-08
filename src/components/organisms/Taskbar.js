@@ -8,7 +8,7 @@ import ConsoleIcon from 'apps/console/ConsoleIcon';
 
 const TaskbarStyled = styled.div`
     width: 98vw;
-    height: 4vh;
+    height: 5vh;
     background: #181818;
     position: absolute;
     left: 0;

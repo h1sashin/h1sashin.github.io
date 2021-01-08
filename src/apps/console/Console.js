@@ -6,16 +6,17 @@ import App from 'apps/App';
 import { applyCommand } from 'apps/console/consoleActions';
 
 const ConsoleStyled = styled.div`
-    width: calc(100% - 4px);
-    height: calc(100% - 4px);
+    width: calc(100% - 8px);
+    height: calc(100% - 8px);
     background-color: black;
     display: flex;
     flex-direction: column;
-    justify-content: flex-end;
+    justify-content: flex-start;
     align-items: flex-start;
     color: #00FF00;
-    padding: 2px;
+    padding: 4px;
     font-size: 1.2em;
+    border-radius: 0 0 15px 15px;
     span {
         display: flex;
         font-size: 0.7em;
@@ -105,6 +106,10 @@ const Console = ({ console }) => {
     );
 }
 
-const mapStateToProps = ({ console }) => ({ console });
+const mapStateToProps = (state) => {
+    return {
+        console: state.appsReducer.console
+    }
+}
 
 export default connect(mapStateToProps)(Console);

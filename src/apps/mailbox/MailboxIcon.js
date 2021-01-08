@@ -9,6 +9,10 @@ const MailboxIcon = ({ mailbox }) => {
     );
 }
 
-const mapStateToProps = ({ mailbox }) => ({ mailbox });
+const mapStateToProps = (state) => {
+    return {
+        mailbox: state.appsReducer.mailbox
+    }
+}
 
 export default connect(mapStateToProps)(MailboxIcon);

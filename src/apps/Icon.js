@@ -11,8 +11,8 @@ const Button = styled.button`
     font-size: 1em;
     font-family: 'Ubuntu', sans-serif;
     font-weight: 300;
-    color: white;
     position: relative;
+    color: inherit;
     &:focus {
         outline: 0;
     }
@@ -24,13 +24,13 @@ const Button = styled.button`
             bottom: 0;
             height: 4px;
             width: 100%;
-            background: red;
+            background: ${props.color};
         }
     `}
 `;
 
 // eslint-disable-next-line no-shadow
-const Icon = ({ isActive, appName, openApp, minimizeApp }) => {
+const Icon = ({ isActive, appName, openApp, minimizeApp, color }) => {
     const handleToggleApp = () => {
         if(isActive) {
             minimizeApp(appName);
@@ -39,10 +39,16 @@ const Icon = ({ isActive, appName, openApp, minimizeApp }) => {
         }
     }
     return(
-        <Button onClick={handleToggleApp} isActive={isActive}>
+        <Button onClick={handleToggleApp} isActive={isActive} color={color}>
             {appName}
         </Button>
     );
+}
+
+const mapStateToProps = state => {
+    return {
+        color: state.themeReducer.primary
+    }
 }
 
 const mapDispatchToProps = dispatch => ({
@@ -50,4 +56,4 @@ const mapDispatchToProps = dispatch => ({
     minimizeApp: (app) => dispatch(minimizeApp(app)),
 });
 
-export default connect(null, mapDispatchToProps)(Icon);
+export default connect(mapStateToProps, mapDispatchToProps)(Icon);

@@ -15,8 +15,17 @@ const Content = styled.div`
     overflow: auto;
 `;
 
+const Application = styled(Draggable)`
+    background: ${props => props.theme.secondary};
+    border: 1px solid ${props => props.primary};
+    border-radius: 16px;
+    z-index: ${props => props.zindex};
+`;
+
 // eslint-disable-next-line no-shadow
-const App = ({ children, isOpen, isMinimized, isMaximized, x, y, width, height, appName, openApp, minimizeApp, maximizeApp, updateSize, updatePosition }) => {
+const App = ({ children, isOpen, isMinimized, isMaximized, x, y, width, height, minWidth, minHeight, appName, openApp, minimizeApp, maximizeApp, updateSize, updatePosition, themeState }) => {
+    const { primary } = themeState;
+    console.log(primary);
     const appSize = () => {
         let size = null;
         if (isMaximized) {
@@ -28,16 +37,15 @@ const App = ({ children, isOpen, isMinimized, isMaximized, x, y, width, height, 
         }
         return size;
     }
-
-    // eslint-disable-next-line no-multi-assign
     let [ index, setIndex ] = useState(zIndex.zIndex += 1);
     if(isOpen){
         return(
-            <Draggable
-                style={{ background: '#2A2D38', border: '1px solid red', zIndex: zIndex.zIndex }}
+            <Application
+                primary={primary}
+                zindex={zIndex.zIndex}
                 size={appSize()}
-                minWidth='640'
-                minHeight='360'
+                minWidth={minWidth || '480'}
+                minHeight={minHeight || '360'}
                 onDragStart={() => setIndex(index += 1)}
                 onResizeStart={() => setIndex(index += 1)}
                 position={!isMaximized ? { x, y } : { x: 0, y: 0 }}
@@ -51,7 +59,7 @@ const App = ({ children, isOpen, isMinimized, isMaximized, x, y, width, height, 
                 <Content>
                     {children}
                 </Content>
-            </Draggable>
+            </Application>
         );
     }
     return null;
@@ -65,4 +73,10 @@ const mapDispatchToProps = dispatch => ({
     updatePosition: (app, e, d) => dispatch(updatePosition(app, e, d))
 });
 
-export default connect(null, mapDispatchToProps)(App);
+const mapStateToProps = (state) => {
+    return {
+        themeState: state.themeReducer
+    }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(App);

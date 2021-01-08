@@ -1,9 +1,15 @@
+/* eslint-disable no-nested-ternary */
 import React from 'react';
 import styled, { css } from 'styled-components';
-import exit from 'assets/img/icons/close-white.svg';
-import minimize from 'assets/img/icons/minimize-white.svg';
-import maximize from 'assets/img/icons/fullscreen-white.svg';
-import maximizeExit from 'assets/img/icons/fullscreen_exit-white.svg';
+import { connect } from 'react-redux';
+import exitWhite from 'assets/img/symbolic/close-white.svg';
+import minimizeWhite from 'assets/img/symbolic/minimize-white.svg';
+import maximizeWhite from 'assets/img/symbolic/fullscreen-white.svg';
+import maximizeExitWhite from 'assets/img/symbolic/fullscreen_exit-white.svg';
+import exitBlack from 'assets/img/symbolic/close-black.svg';
+import minimizeBlack from 'assets/img/symbolic/minimize-black.svg';
+import maximizeBlack from 'assets/img/symbolic/fullscreen-black.svg';
+import maximizeExitBlack from 'assets/img/symbolic/fullscreen_exit-black.svg';
 
 const Button = styled.button`
     height: 100%;
@@ -13,30 +19,39 @@ const Button = styled.button`
     background-color: transparent;
     border: none;
     background-position: center;
+    
     &:focus {
         outline: 0;
     }
     &:hover {
-        background-color: #141414;
+        background-color: ${props => props.theme.secondary};
     }
     ${props => props.action === 'minimize' && css`
-        background-image: url(${minimize});
+        background-image: url(${props.mode === 'dark' ? minimizeWhite : minimizeBlack});
     `}
     ${props => props.action === 'maximize' && css`
-        background-image: url(${props.isMaximized ? maximizeExit : maximize});
+        background-image: url(${props.isMaximized ? (props.mode === 'dark' ? maximizeExitWhite : maximizeExitBlack) : (props.mode === 'dark' ? maximizeWhite : maximizeBlack)});
     `}
     ${props => props.action === 'exit' && css`
-        background-image: url(${exit});
+        border-radius: 0 16px 0 0;
+        background-image: url(${props.mode === 'dark' ? exitWhite : exitBlack});
         &:hover {
             background-color: red;
         }
     `}
 `;
 
-const ActionButton = ({ onClick, action, appName, isMaximized }) => {
+const ActionButton = ({ onClick, action, appName, isMaximized, themeState }) => {
+    const { mode, theme } = themeState;
     return(
-        <Button onClick={() => onClick(appName)} action={action} isMaximized={isMaximized} />
+        <Button onClick={() => onClick(appName)} action={action} isMaximized={isMaximized} mode={mode} theme={theme} />
     );
 }
 
-export default ActionButton;
+const mapStateToProps = (state) => {
+    return {
+        themeState: state.themeReducer
+    }
+}
+
+export default connect(mapStateToProps)(ActionButton);

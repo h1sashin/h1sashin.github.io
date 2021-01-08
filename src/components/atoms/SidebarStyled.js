@@ -1,5 +1,5 @@
-import styled from 'styled-components';
-import main from 'assets/img/files/folder-black.svg';
+import styled, { css } from 'styled-components';
+import main from 'assets/img/places/folder-black.svg';
 
 const SidebarStyled = styled.div`
     left: 0;
@@ -7,12 +7,24 @@ const SidebarStyled = styled.div`
     width: calc(256px - 32px);
     height: calc(100% - 64px);
     padding: 32px 16px;
-    color: #FFFFFF;
+    background: ${props => props.theme.primary};
     font-size: 16px;
-    background: #000000;
     overflow: auto;
     position: sticky;
-    box-shadow: 0 0 20px 0 black;
+    border-radius: 0 0 0 16px;
+    color: ${props => props.theme.text};
+
+    ${props => props.settings && css`
+        padding: 0; 
+        width: 64px;
+        height: 100%;
+        overflow: hidden;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    `}
+
     h1, h3 {
         display: flex;
         justify-content: flex-start;

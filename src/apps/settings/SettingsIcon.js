@@ -9,6 +9,10 @@ const SettingsIcon = ({ settings }) => {
     );
 }
 
-const mapStateToProps = ({ settings }) => ({ settings });
+const mapStateToProps = (state) => {
+    return {
+        settings: state.appsReducer.settings
+    }
+}
 
 export default connect(mapStateToProps)(SettingsIcon);

@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
 import emailjs from 'emailjs-com';
+import { connect } from 'react-redux';
 
 const FormStyled = styled.form`
     width: 100%;
@@ -9,6 +10,7 @@ const FormStyled = styled.form`
     flex-direction: column;
     align-items: center;
     position: relative;
+    color: ${props => props.theme.text};
 `;
 
 const SubmitButton = styled.input`
@@ -20,7 +22,7 @@ const SubmitButton = styled.input`
     width: 96px;
     height: 48px;
     border: none;
-    background: purple;
+    background: ${props => props.color};;
     font-size: 16px;
     font-family: 'Ubuntu';
     &:focus {
@@ -47,7 +49,8 @@ const Input = styled.span`
         background: none;
         border: none;
         border-bottom: 1px solid white;
-        color: white;
+        color: ${props => props.theme.text};
+        background: ${props => props.theme.primary};
         &:focus {
             outline: 0;
             background: none;
@@ -68,10 +71,10 @@ const Textarea = styled.span`
     width: 90%;
     height: 50%;
     textarea {
-        color: white;
+        background: ${props => props.theme.primary};
+        color: ${props => props.theme.text};
         width: 100%;
         height: 100%;
-        background: none;
         border: none;
         border-bottom: 1px solid white;
         margin-top: 16px;
@@ -81,7 +84,7 @@ const Textarea = styled.span`
     }
 `;
 
-const MailboxForm = () => {
+const MailboxForm = ({ color }) => {
     const [ to, updateTo ] = useState('hiszaszin@gmail.com');
     const [ from, updateFrom ] = useState('');
     const [ subject, updateSubject ] = useState('');
@@ -128,9 +131,15 @@ const MailboxForm = () => {
             <Textarea>
                 <textarea name='message' form='mailbox_form' value={message} onChange={(e) => updateMessage(e.target.value)} />
             </Textarea>
-            <SubmitButton type='submit' value='Submit'/>
+            <SubmitButton type='submit' value='Submit' color={color} />
         </FormStyled>
     )
 }
 
-export default MailboxForm;
+const mapStateToProps = state => {
+    return {
+        color: state.themeReducer.primary
+    }
+}
+
+export default connect(mapStateToProps)(MailboxForm);

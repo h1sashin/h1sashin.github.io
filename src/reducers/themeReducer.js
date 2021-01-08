@@ -1,27 +1,53 @@
 const initialState = {
-    taskbarStyle: 1,
-    windowStyle: 1,
-    wallpaper: 1,
-    primaryColor: '#80CED6',
-    lightmode: {
-        primary: '#181818',
-        secondary: '#000000',
-        tertiary: '#B2C2BF',
-        text: '#FFFFFF'
-    },
-    darkmode: {
-        primary: '#FFFFFF',
-        secondary: '#2A2D38',
-        tertiary: '#191B21',
-        text: '#000000'
-    }
+    style: 'rounded',
+    primary: '#80CED6',
+    mode: 'light',
+    iconType: 'text',
+    taskbarTransparency: 0.9,
+    dateFormat: '24h',
+    dateHide: 'hide',
 }
 
-const rootReducer = (state = initialState, action) => {
+const themeReducer = (state = initialState, action) => {
     switch (action.type) {
+        case 'SWITCH_MODE':
+            return {
+                ...state,
+                mode: action.payload.mode,
+            }
+        case 'SWITCH_STYLE':
+            return {
+                ...state,
+                style: action.payload.style
+            }
+        case 'CHANGE_PRIMARY':
+            return {
+                ...state,
+                primary: action.payload.color
+            }
+        case 'UPDATE_TASKBAR_TRANSPARENCY':
+            return {
+                ...state,
+                taskbarTransparency: action.payload.transparency
+            }
+        case 'SWITCH_ICON_TYPE':
+            return {
+                ...state,
+                iconType: action.payload.type
+            }
+        case 'SWITCH_DATE_HIDE':
+            return {
+                ...state,
+                dateHide: action.payload.hide
+            }
+        case 'SWITCH_DATE_FORMAT':
+            return {
+                ...state,
+                dateFormat: action.payload.format
+            }
         default:
             return state;
     }
 };
 
-export default rootReducer;
+export default themeReducer;
