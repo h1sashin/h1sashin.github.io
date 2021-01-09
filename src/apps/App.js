@@ -25,7 +25,6 @@ const Application = styled(Draggable)`
 // eslint-disable-next-line no-shadow
 const App = ({ children, isOpen, isMinimized, isMaximized, x, y, width, height, minWidth, minHeight, appName, openApp, minimizeApp, maximizeApp, updateSize, updatePosition, themeState }) => {
     const { primary } = themeState;
-    console.log(primary);
     const appSize = () => {
         let size = null;
         if (isMaximized) {

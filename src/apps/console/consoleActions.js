@@ -5,10 +5,6 @@ import store from 'store';
 export const applyCommand = (action) => {
     if(action){
         const command = action.split(' ');
-        console.log(command);
-        console.log(command[0]);
-        console.log(command[1]);
-        console.log(command[2]);
         switch(command[0]){
             case 'help':
                 return (
