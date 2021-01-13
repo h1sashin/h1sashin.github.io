@@ -94,3 +94,23 @@ export const switchDateFormat = (format) => {
         payload: { format }
     }
 } 
+
+export const addNotification = (title, message, id) => {
+    return {
+        type: 'ADD_NOTIFICATION',
+        payload: {
+            title,
+            message,
+            id
+        }
+    }
+}
+
+export const removeNotification = (id) => {
+    return {
+        type: 'REMOVE_NOTIFICATION',
+        payload: {
+            id
+        }
+    }
+}

@@ -19,6 +19,7 @@ import basic from 'assets/img/preferences/taskbar/basic.svg';
 import rounded from 'assets/img/preferences/taskbar/rounded.svg';
 import { switchStyle, switchMode, updateTaskbarTransparency, changePrimary, switchIconType, switchDateHide, switchDateFormat } from 'actions';
 import icon from 'assets/img/apps/preferences.svg';
+import notificationBoard from 'assets/img/preferences/notifications/notification-board.svg';
 
 
 const Content = styled.div`
@@ -139,6 +140,40 @@ const Mode = styled.span`
     `}
 `;
 
+const Position = styled.div`
+    width: 50%;
+    position: relative;
+    img {
+        width: 100%;
+        border-radius: ${props => props.theme.style.appRadius}px;
+    }
+`;
+
+const PositionButton = styled.button`
+    position: absolute;
+    width: 25%;
+    height: 20%;
+    border: none;
+    border-radius: ${props => props.theme.style.appRadius}px;
+    background: ${props => props.theme.mode.secondary};
+    ${props => props.topLeft && css`
+        top: 5%;
+        left: 5%;
+    `}
+    ${props => props.topRight && css`
+        top: 5%;
+        right: 5%;
+    `}
+    ${props => props.bottomLeft && css`
+        bottom: 20%;
+        left: 5%;
+    `}
+    ${props => props.bottomRight && css`
+        bottom: 20%;
+        right: 5%;
+    `}
+`;
+
 
 // eslint-disable-next-line no-shadow
 const Settings = ({ settings, switchMode, switchStyle, updateTaskbarTransparency, changePrimary, theme, switchIconType, switchDateHide, switchDateFormat }) => {
@@ -187,7 +222,14 @@ const Settings = ({ settings, switchMode, switchStyle, updateTaskbarTransparency
                     <Section>
                         <span><img src={notifications} alt='notifications' /><h1>Notifications</h1></span>
                         <Subsection>
-                            Feature not added yet!
+                            <span style={{alignSelf: 'flex-start', width: 'auto'}}>Notifications position:</span>
+                            <Position>
+                                <img src={notificationBoard} alt='jd' />
+                                <PositionButton topLeft />
+                                <PositionButton topRight />
+                                <PositionButton bottomLeft />
+                                <PositionButton bottomRight />
+                            </Position>
                         </Subsection>
                     </Section>
                     <Section>

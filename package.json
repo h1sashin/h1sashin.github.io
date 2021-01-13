@@ -32,6 +32,7 @@
     "reactjs-pdf-reader": "^1.0.12",
     "redux": "^4.0.5",
     "styled-components": "^5.2.1",
+    "uuid": "^8.3.2",
     "web-vitals": "^0.2.4"
   },
   "scripts": {

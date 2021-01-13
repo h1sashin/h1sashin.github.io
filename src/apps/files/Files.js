@@ -144,6 +144,7 @@ const Card = styled.div`
                 padding: 0;
             }
             img {
+                align-self: flex-start;
                 width: 72px;
             }
         }

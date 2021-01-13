@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import styled from 'styled-components';
 import emailjs from 'emailjs-com';
 import { connect } from 'react-redux';
+import * as notification from 'components/organisms/notifications/actions'
 
 const FormStyled = styled.form`
     width: 100%;
@@ -46,11 +47,10 @@ const Input = styled.span`
     input {
         width: 100%;
         height: 100%;
-        background: none;
+        background: transparent;
         border: none;
         border-bottom: 1px solid white;
         color: ${props => props.theme.mode.text};
-        background: ${props => props.theme.mode.primary};
         &:focus {
             outline: 0;
             background: none;
@@ -71,7 +71,7 @@ const Textarea = styled.span`
     width: 90%;
     height: 50%;
     textarea {
-        background: ${props => props.theme.mode.primary};
+        background: transparent;
         color: ${props => props.theme.mode.text};
         width: 100%;
         height: 100%;
@@ -106,12 +106,12 @@ const MailboxForm = ({ color }) => {
         if(to === 'hiszaszin@gmail.com') {
             emailjs.send(serviceID, templateID, mailData, userID)
                 .then((response) => {
-                    console.log('SUCCESS!', response.status, response.text);
+                    notification.display('Message sent!', `Message has been sent! \n Status: ${response.status} \n Text: ${response.text}`);
                 }, (error) => {
-                    console.log('FAILED...', error);
+                    notification.display('Message send error!', `Message has been sent! \n Error: ${error}`);
                 });
         } else {
-            console.log('gowno');
+            notification.display('Message send error!', 'This app supports sending emails only to "hiszaszin@gmail.com"');
         }
     }
 

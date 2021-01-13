@@ -8,6 +8,7 @@ import Mailbox from 'apps/mailbox/Mailbox';
 import Console from 'apps/console/Console';
 import { connect } from 'react-redux';
 import { styleRounded, styleBasic } from 'themes/Styles';
+import Container from 'components/organisms/notifications/Container';
 
 const DesktopStyled = styled.div`
     height: ${props => props.theme.style.desktopHeight}vh;
@@ -38,6 +39,7 @@ const Desktop = ({ theme }) => {
         <ThemeProvider theme={currentTheme}>
             <System>
                 <DesktopStyled>
+                    <Container />
                     <Console />
                     <Mailbox />
                     <Files />
