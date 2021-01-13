@@ -9,7 +9,7 @@ const Item = styled.div`
     flex-direction: column;
     box-shadow: 0 0 2px 0 black;
     cursor: pointer;
-    border-radius: 5px;
+    border-radius: ${props => props.theme.style.appRadius}px;
     margin-bottom: 10px;
     ${props => props.index === 0 && css`
         background-color: rgb(176,224,230, 0.3);

@@ -1,11 +1,12 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import Icon from 'apps/Icon';
+import icon from 'assets/img/apps/mailbox.svg';
 
 const MailboxIcon = ({ mailbox }) => {
     const { isOpen, appName } = mailbox;
     return(
-        <Icon appName={appName} isActive={isOpen} />
+        <Icon appName={appName} isActive={isOpen} icon={icon}/>
     );
 }
 

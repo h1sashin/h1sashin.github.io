@@ -7,6 +7,8 @@ import ContentStyled from 'components/atoms/ContentStyled';
 import Child from 'components/atoms/Child';
 import MailboxItem from 'components/molecules/MailboxItem';
 import MailboxForm from 'components/organisms/MailboxForm';
+import icon from 'assets/img/apps/mailbox.svg';
+
 
 const MessageContainer = styled.div`
     padding: 16px;
@@ -14,7 +16,7 @@ const MessageContainer = styled.div`
     height: calc(100% - 32px);
     display: flex;
     flex-direction: column;
-    color: ${props => props.theme.text};
+    color: ${props => props.theme.mode.text};
 `;
 
 const Title = styled.h1`
@@ -99,7 +101,7 @@ const Wizard = ({ children }) => {
 const Mailbox = ({ mailbox }) => {
     const { isOpen, isMinimized, isMaximized, x, y, width, height, appName } = mailbox;
     return(
-        <App isOpen={isOpen} isMinimized={isMinimized} isMaximized={isMaximized} x={x} y={y} width={width} height={height} appName={appName}>
+        <App isOpen={isOpen} isMinimized={isMinimized} isMaximized={isMaximized} x={x} y={y} width={width} height={height} appName={appName} icon={icon}>
             <Wizard>
                 <Sidebar />
                 <Content>

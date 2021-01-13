@@ -4,6 +4,8 @@ import styled from 'styled-components';
 import { connect } from 'react-redux';
 import App from 'apps/App';
 import { applyCommand } from 'apps/console/consoleActions';
+import icon from 'assets/img/apps/terminal.svg';
+
 
 const ConsoleStyled = styled.div`
     width: calc(100% - 8px);
@@ -16,7 +18,7 @@ const ConsoleStyled = styled.div`
     color: #00FF00;
     padding: 4px;
     font-size: 1.2em;
-    border-radius: 0 0 15px 15px;
+    border-radius: 0 0 ${props => props.theme.style.appRadius}px ${props => props.theme.style.appRadius}px;
     span {
         display: flex;
         font-size: 0.7em;
@@ -80,7 +82,7 @@ const Console = ({ console }) => {
             } else {
                 updateOutput([
                     ...output,
-                    `$/root/ ${value}`,
+                    `> ${value}`,
                     applyCommand(value)
                 ]);
                 updateValue('');
@@ -94,13 +96,13 @@ const Console = ({ console }) => {
     });
 
     return(
-        <App isOpen={isOpen} isMinimized={isMinimized} isMaximized={isMaximized} x={x} y={y} width={width} height={height} appName={appName}>
+        <App isOpen={isOpen} isMinimized={isMinimized} isMaximized={isMaximized} x={x} y={y} width={width} height={height} appName={appName} icon={icon}>
             <ConsoleStyled>
                 <Output>{output.map((item, e) => {
                     // eslint-disable-next-line react/no-array-index-key
                     return <h6 key={e}>{item}</h6>
                 })}</Output>
-                <span>$/root/<Input type='text' maxLength='96' ref={setInputRef} spellcheck="false" value={value} onChange={(event) => updateValue(event.target.value)} onKeyDown={(event) => handleEnterButton(event)} /></span>
+                <span>{'>'}<Input type='text' maxLength='96' ref={setInputRef} spellcheck="false" value={value} onChange={(event) => updateValue(event.target.value)} onKeyDown={(event) => handleEnterButton(event)} /></span>
             </ConsoleStyled>
         </App>
     );

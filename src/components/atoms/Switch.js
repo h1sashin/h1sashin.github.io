@@ -9,14 +9,14 @@ const SwitchStyled = styled.div`
     align-items: center;
     justify-content: space-around;
     position: relative;
-    border-radius: 15px;
+    border-radius: ${props => props.theme.style.appRadius}px;
     &:after {
         content: '';
         position: absolute;
         width: 45%;
         left: 5%;
         height: 80%;
-        border-radius: 15px;
+        border-radius: ${props => props.theme.style.appRadius}px;
         transition: .2s transform;
         background: ${props => props.color};
         ${props => props.checked && css`
@@ -31,11 +31,11 @@ const SwitchStyled = styled.div`
 
 const Switch = ({ left, right, dispatch, color }) => {
     const [ checked, setChecked ] = useState(false);
-    const dispatchData = !checked ? left : right
     return (
         <SwitchStyled color={color} checked={checked} onClick={() => {
             setChecked(!checked);
-            dispatch(dispatchData);
+            dispatch(!checked ? right : left);
+            console.log(dispatch);
         }}>
             <label>{left}</label>
             <label>{right}</label>

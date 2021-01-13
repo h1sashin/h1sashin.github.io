@@ -10,7 +10,7 @@ const FormStyled = styled.form`
     flex-direction: column;
     align-items: center;
     position: relative;
-    color: ${props => props.theme.text};
+    color: ${props => props.theme.mode.text};
 `;
 
 const SubmitButton = styled.input`
@@ -49,8 +49,8 @@ const Input = styled.span`
         background: none;
         border: none;
         border-bottom: 1px solid white;
-        color: ${props => props.theme.text};
-        background: ${props => props.theme.primary};
+        color: ${props => props.theme.mode.text};
+        background: ${props => props.theme.mode.primary};
         &:focus {
             outline: 0;
             background: none;
@@ -71,8 +71,8 @@ const Textarea = styled.span`
     width: 90%;
     height: 50%;
     textarea {
-        background: ${props => props.theme.primary};
-        color: ${props => props.theme.text};
+        background: ${props => props.theme.mode.primary};
+        color: ${props => props.theme.mode.text};
         width: 100%;
         height: 100%;
         border: none;

@@ -4,8 +4,9 @@ import { openApp, minimizeApp } from 'actions';
 import styled, { css } from 'styled-components';
 
 const Button = styled.button`
-    height: 100%;
-    margin-left: 64px;
+    height: ${props => props.theme.style.height}vh;
+    width: ${props => props.iconType === 'text' ? 'auto' : `${props.theme.style.height}vh`};
+    margin-right: ${props => props.iconType === 'text' ? '32px' : '16px'};
     border: none;
     background: transparent;
     font-size: 1em;
@@ -13,8 +14,17 @@ const Button = styled.button`
     font-weight: 300;
     position: relative;
     color: inherit;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     &:focus {
         outline: 0;
+    }
+    img {
+        height: 65%;
+    }
+    &:hover {
+        background: ${props => props.theme.mode.secondary};
     }
     ${props => props.isActive && css`
         &:after {
@@ -30,7 +40,7 @@ const Button = styled.button`
 `;
 
 // eslint-disable-next-line no-shadow
-const Icon = ({ isActive, appName, openApp, minimizeApp, color }) => {
+const Icon = ({ isActive, appName, openApp, minimizeApp, color, iconType, icon }) => {
     const handleToggleApp = () => {
         if(isActive) {
             minimizeApp(appName);
@@ -39,15 +49,16 @@ const Icon = ({ isActive, appName, openApp, minimizeApp, color }) => {
         }
     }
     return(
-        <Button onClick={handleToggleApp} isActive={isActive} color={color}>
-            {appName}
-        </Button>
+            <Button onClick={handleToggleApp} isActive={isActive} color={color} iconType={iconType}>
+                {iconType === 'text' ? appName : <img src={icon} alt={appName}/>}
+            </Button>
     );
 }
 
 const mapStateToProps = state => {
     return {
-        color: state.themeReducer.primary
+        color: state.themeReducer.primary,
+        iconType: state.themeReducer.iconType
     }
 }
 

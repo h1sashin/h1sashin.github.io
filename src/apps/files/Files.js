@@ -7,6 +7,7 @@ import file from 'assets/img/places/description-black.svg';
 import SidebarStyled from 'components/atoms/SidebarStyled';
 import Child from 'components/atoms/Child';
 import ContentStyled from 'components/atoms/ContentStyled';
+import icon from 'assets/img/apps/files.svg';
 
 const Button = styled.button`
     width: 100%;
@@ -15,7 +16,7 @@ const Button = styled.button`
     background: transparent;
     margin: 0;
     margin-left: -35px;
-    color: ${props => props.theme.text};
+    color: ${props => props.theme.mode.text};
     ${props => props.portfolio && css`
         margin-left: -10px;
     `}
@@ -69,15 +70,15 @@ const TopBar = styled.div`
         font-size: 1em;
         margin-right: 20px;
     }
-    background: ${props => props.theme.primary};
-    color: ${props => props.theme.text};
+    background: ${props => props.theme.mode.primary};
+    color: ${props => props.theme.mode.text};
 `;
 
 const Link = styled.a`
     margin-right: 20px;
     ${props => props.linkExists === '' && css`
         text-decoration: line-through;
-        color: ${props.theme.text};
+        color: ${props.theme.mode.text};
     `}
 `;
 
@@ -91,7 +92,7 @@ const Skill = styled.div`
     align-items: center;
     justify-content: center;
     margin-top: 32px;
-    color: ${props => props.theme.text};
+    color: ${props => props.theme.mode.text};
     img {
         height: 75%;
     }
@@ -262,7 +263,7 @@ const Files = ({ files }) => {
     const { isOpen, isMinimized, isMaximized, x, y, width, height, appName } = files;
 
     return(
-        <App isOpen={isOpen} isMinimized={isMinimized} isMaximized={isMaximized} x={x} y={y} width={width} height={height} appName={appName}>
+        <App isOpen={isOpen} isMinimized={isMinimized} isMaximized={isMaximized} x={x} y={y} width={width} height={height} appName={appName} icon={icon}>
             <Wizard>
                 <Sidebar />
                 <Content>

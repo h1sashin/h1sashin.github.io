@@ -24,7 +24,7 @@ const Button = styled.button`
         outline: 0;
     }
     &:hover {
-        background-color: ${props => props.theme.secondary};
+        background-color: ${props => props.theme.mode.secondary};
     }
     ${props => props.action === 'minimize' && css`
         background-image: url(${props.mode === 'dark' ? minimizeWhite : minimizeBlack});
@@ -33,7 +33,7 @@ const Button = styled.button`
         background-image: url(${props.isMaximized ? (props.mode === 'dark' ? maximizeExitWhite : maximizeExitBlack) : (props.mode === 'dark' ? maximizeWhite : maximizeBlack)});
     `}
     ${props => props.action === 'exit' && css`
-        border-radius: 0 16px 0 0;
+        border-radius: 0 calc(${props.theme.style.appRadius}px - 2px) 0 0;
         background-image: url(${props.mode === 'dark' ? exitWhite : exitBlack});
         &:hover {
             background-color: red;

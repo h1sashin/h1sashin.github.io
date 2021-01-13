@@ -7,9 +7,10 @@ import Settings from 'apps/settings/Settings';
 import Mailbox from 'apps/mailbox/Mailbox';
 import Console from 'apps/console/Console';
 import { connect } from 'react-redux';
+import { styleRounded, styleBasic } from 'themes/Styles';
 
 const DesktopStyled = styled.div`
-    height: 95vh;
+    height: ${props => props.theme.style.desktopHeight}vh;
     width: 100vw;
     position: absolute;
     left: 0;
@@ -27,8 +28,14 @@ const System = styled.div`
 `;
 
 const Desktop = ({ theme }) => {
+
+    const currentTheme = {
+        mode: theme.mode === 'dark' ? darkTheme : lightTheme,
+        style: theme.style === 'rounded' ? styleRounded : styleBasic
+    }
+
     return(
-        <ThemeProvider theme={theme === 'dark' ? darkTheme : lightTheme}>
+        <ThemeProvider theme={currentTheme}>
             <System>
                 <DesktopStyled>
                     <Console />
@@ -44,7 +51,7 @@ const Desktop = ({ theme }) => {
 
 const mapStateToProps = (state) => {
     return {
-        theme: state.themeReducer.mode
+        theme: state.themeReducer
     }
 }
 

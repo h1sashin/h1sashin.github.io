@@ -7,12 +7,12 @@ const SidebarStyled = styled.div`
     width: calc(256px - 32px);
     height: calc(100% - 64px);
     padding: 32px 16px;
-    background: ${props => props.theme.primary};
+    background: ${props => props.theme.mode.primary};
     font-size: 16px;
     overflow: auto;
     position: sticky;
-    border-radius: 0 0 0 16px;
-    color: ${props => props.theme.text};
+    border-radius: 0 0 0 ${props => props.theme.style.appRadius}px;
+    color: ${props => props.theme.mode.text};
 
     ${props => props.settings && css`
         padding: 0; 

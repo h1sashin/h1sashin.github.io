@@ -16,14 +16,14 @@ const Content = styled.div`
 `;
 
 const Application = styled(Draggable)`
-    background: ${props => props.theme.secondary};
+    background: ${props => props.theme.mode.secondary};
     border: 1px solid ${props => props.primary};
-    border-radius: 16px;
+    border-radius: ${props => props.theme.style.appRadius}px;
     z-index: ${props => props.zindex};
 `;
 
 // eslint-disable-next-line no-shadow
-const App = ({ children, isOpen, isMinimized, isMaximized, x, y, width, height, minWidth, minHeight, appName, openApp, minimizeApp, maximizeApp, updateSize, updatePosition, themeState }) => {
+const App = ({ children, isOpen, isMinimized, isMaximized, x, y, width, height, minWidth, minHeight, appName, openApp, minimizeApp, maximizeApp, updateSize, updatePosition, themeState, icon }) => {
     const { primary } = themeState;
     const appSize = () => {
         let size = null;
@@ -54,7 +54,7 @@ const App = ({ children, isOpen, isMinimized, isMaximized, x, y, width, height, 
                 enableResizing={!isMaximized}
                 disableDragging={isMaximized}
             >
-                <TitleBar appName={appName} exit={openApp} minimize={minimizeApp} maximize={maximizeApp} isMaximized={isMaximized}/>
+                <TitleBar appName={appName} exit={openApp} minimize={minimizeApp} maximize={maximizeApp} isMaximized={isMaximized} icon={icon}/>
                 <Content>
                     {children}
                 </Content>

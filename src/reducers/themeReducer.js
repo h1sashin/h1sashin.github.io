@@ -1,8 +1,8 @@
 const initialState = {
     style: 'rounded',
     primary: '#80CED6',
-    mode: 'light',
-    iconType: 'text',
+    mode: 'dark',
+    iconType: 'icon',
     taskbarTransparency: 0.9,
     dateFormat: '24h',
     dateHide: 'hide',

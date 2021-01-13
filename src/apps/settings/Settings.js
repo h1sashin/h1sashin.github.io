@@ -18,6 +18,8 @@ import darkmode from 'assets/img/preferences/color/darkmode.svg';
 import basic from 'assets/img/preferences/taskbar/basic.svg';
 import rounded from 'assets/img/preferences/taskbar/rounded.svg';
 import { switchStyle, switchMode, updateTaskbarTransparency, changePrimary, switchIconType, switchDateHide, switchDateFormat } from 'actions';
+import icon from 'assets/img/apps/preferences.svg';
+
 
 const Content = styled.div`
     padding-top: 32px;
@@ -25,7 +27,7 @@ const Content = styled.div`
     display: flex;
     justify-content: center;
     align-items: flex-start;
-    color: ${props => props.theme.text};
+    color: ${props => props.theme.mode.text};
 `;
 
 const Side = styled.div`
@@ -40,8 +42,8 @@ const Side = styled.div`
 `;
 
 const Section = styled.div`
-    border-radius: 15px;
-    background: ${props => props.theme.primary};
+    border-radius: ${props => props.theme.style.appRadius}px;
+    background: ${props => props.theme.mode.primary};
     padding: 16px; 
     width: calc(100% - 32px);
     display: flex;
@@ -66,8 +68,8 @@ const Section = styled.div`
 `;
 
 const Subsection = styled.div`  
-    border-radius: 15px;
-    background: ${props => props.theme.secondary};
+    border-radius: ${props => props.theme.style.appRadius}px;
+    background: ${props => props.theme.mode.secondary};
     width: calc(100% - 32px);
     padding: 16px;
     font-size: 1.5em;
@@ -95,12 +97,12 @@ const Mode = styled.span`
     width: calc(45% - 16px);
     padding: 8px;
     ${props => props.left && css`
-        border-radius: 15px 0 0 15px;
+        border-radius: ${props.theme.style.appRadius}px 0 0 ${props.theme.style.appRadius}px;
     `}
     ${props => props.right && css`
-        border-radius: 0 15px 15px 0;
+        border-radius: 0 ${props.theme.style.appRadius}px ${props.theme.style.appRadius}px 0;
     `}
-    background: ${props => props.theme.primary};
+    background: ${props => props.theme.mode.primary};
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -108,7 +110,7 @@ const Mode = styled.span`
         border: none;
         background: transparent;
         width: 100%;
-        border-radius: 15px;
+        border-radius: ${props => props.theme.style.appRadius}px;
         margin-bottom: 8px;
         position: relative;
         display: flex;
@@ -121,7 +123,7 @@ const Mode = styled.span`
             height: auto;
             margin: 0;
             padding: 0;
-            border-radius: 12px;
+            border-radius: ${props => props.theme.style.appRadius}px;
         }
     }
     ${props => props.isActive && css`
@@ -129,7 +131,7 @@ const Mode = styled.span`
             position: absolute;
             left: -1px;
             top: -1px;
-            border-radius: 12px;
+            border-radius: ${props.theme.style.appRadius}px;
             width: calc(100% - 8px);
             height: calc(100% - 8px);
             border: 5px solid ${props.color};
@@ -139,14 +141,14 @@ const Mode = styled.span`
 
 
 // eslint-disable-next-line no-shadow
-const Settings = ({ settings, switchMode, switchStyle, updateTaskbarTransparency, changePrimary, theme }) => {
+const Settings = ({ settings, switchMode, switchStyle, updateTaskbarTransparency, changePrimary, theme, switchIconType, switchDateHide, switchDateFormat }) => {
     const { style, mode, primary } = theme;
     const { isOpen, isMinimized, isMaximized, x, y, width, height, appName } = settings;
     const [ rangeValue, updateRangeValue ] = useState(30);
     const [ color, updateColor ] = useState('#FFFFFF');
     const pickerColors = ['#FF6900', '#FCB900', '#7BDCB5', '#00D084', '#8ED1FC', '#0693E3', '#EB144C', '#F78DA7', '#9900EF', color];
     return(
-        <App isOpen={isOpen} isMinimized={isMinimized} isMaximized={isMaximized} x={x} y={y} width={width} height={height} appName={appName} minWidth='1008' minHeight='567'>
+        <App isOpen={isOpen} isMinimized={isMinimized} isMaximized={isMaximized} x={x} y={y} width={width} height={height} appName={appName} minWidth='1008' minHeight='567' icon={icon}>
             <Content>
                 <Side left>
                     <Section>
