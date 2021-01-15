@@ -6,6 +6,7 @@ const initialState = {
     taskbarTransparency: 0.9,
     dateFormat: '24h',
     dateHide: 'hide',
+    notificationsPosition: 'topRight'
 }
 
 const themeReducer = (state = initialState, action) => {
@@ -44,6 +45,11 @@ const themeReducer = (state = initialState, action) => {
             return {
                 ...state,
                 dateFormat: action.payload.format
+            }
+        case 'CHANGE_NOTIFICATIONS_POSITION':
+            return {
+                ...state,
+                notificationsPosition: action.payload.position
             }
         default:
             return state;

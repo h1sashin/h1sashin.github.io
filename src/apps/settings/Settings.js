@@ -17,7 +17,7 @@ import lightmode from 'assets/img/preferences/color/lightmode.svg';
 import darkmode from 'assets/img/preferences/color/darkmode.svg';
 import basic from 'assets/img/preferences/taskbar/basic.svg';
 import rounded from 'assets/img/preferences/taskbar/rounded.svg';
-import { switchStyle, switchMode, updateTaskbarTransparency, changePrimary, switchIconType, switchDateHide, switchDateFormat } from 'actions';
+import { switchStyle, switchMode, updateTaskbarTransparency, changePrimary, switchIconType, switchDateHide, switchDateFormat, changeNotificationsPosition } from 'actions';
 import icon from 'assets/img/apps/preferences.svg';
 import notificationBoard from 'assets/img/preferences/notifications/notification-board.svg';
 
@@ -143,9 +143,20 @@ const Mode = styled.span`
 const Position = styled.div`
     width: 50%;
     position: relative;
+    border-radius: ${props => props.theme.style.appRadius}px;
     img {
         width: 100%;
         border-radius: ${props => props.theme.style.appRadius}px;
+    }
+    &:after {
+        border-radius: ${props => props.theme.style.appRadius}px;
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        background: ${props => props.theme.mode.primary};
+        content: '';
     }
 `;
 
@@ -155,7 +166,9 @@ const PositionButton = styled.button`
     height: 20%;
     border: none;
     border-radius: ${props => props.theme.style.appRadius}px;
-    background: ${props => props.theme.mode.secondary};
+    background: ${props => props.isActive ? props.bg : props.theme.mode.secondary};
+    z-index: 1;
+    cursor: pointer;
     ${props => props.topLeft && css`
         top: 5%;
         left: 5%;
@@ -165,18 +178,18 @@ const PositionButton = styled.button`
         right: 5%;
     `}
     ${props => props.bottomLeft && css`
-        bottom: 20%;
+        bottom: 5%;
         left: 5%;
     `}
     ${props => props.bottomRight && css`
-        bottom: 20%;
+        bottom: 5%;
         right: 5%;
     `}
 `;
 
 
 // eslint-disable-next-line no-shadow
-const Settings = ({ settings, switchMode, switchStyle, updateTaskbarTransparency, changePrimary, theme, switchIconType, switchDateHide, switchDateFormat }) => {
+const Settings = ({ settings, switchMode, switchStyle, updateTaskbarTransparency, changePrimary, theme, switchIconType, switchDateHide, switchDateFormat, changeNotificationsPosition }) => {
     const { style, mode, primary } = theme;
     const { isOpen, isMinimized, isMaximized, x, y, width, height, appName } = settings;
     const [ rangeValue, updateRangeValue ] = useState(30);
@@ -225,10 +238,10 @@ const Settings = ({ settings, switchMode, switchStyle, updateTaskbarTransparency
                             <span style={{alignSelf: 'flex-start', width: 'auto'}}>Notifications position:</span>
                             <Position>
                                 <img src={notificationBoard} alt='jd' />
-                                <PositionButton topLeft />
-                                <PositionButton topRight />
-                                <PositionButton bottomLeft />
-                                <PositionButton bottomRight />
+                                <PositionButton topLeft onClick={() => changeNotificationsPosition('topLeft')} isActive={theme.notificationsPosition === 'topLeft'} bg={theme.primary} />
+                                <PositionButton topRight onClick={() => changeNotificationsPosition('topRight')} isActive={theme.notificationsPosition === 'topRight'} bg={theme.primary} />
+                                <PositionButton bottomLeft onClick={() => changeNotificationsPosition('bottomLeft')} isActive={theme.notificationsPosition === 'bottomLeft'} bg={theme.primary} />
+                                <PositionButton bottomRight onClick={() => changeNotificationsPosition('bottomRight')} isActive={theme.notificationsPosition === 'bottomRight'} bg={theme.primary} />
                             </Position>
                         </Subsection>
                     </Section>
@@ -303,7 +316,8 @@ const mapDispatchToProps = dispatch => ({
     changePrimary: (color) => dispatch(changePrimary(color)),
     switchIconType: (type) => dispatch(switchIconType(type)),
     switchDateHide: (hide) => dispatch(switchDateHide(hide)),
-    switchDateFormat: (format) => dispatch(switchDateFormat(format))
+    switchDateFormat: (format) => dispatch(switchDateFormat(format)),
+    changeNotificationsPosition: (position) => dispatch(changeNotificationsPosition(position))
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(Settings);

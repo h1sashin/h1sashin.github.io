@@ -10,7 +10,7 @@ const StyledNotification = styled.div`
     display: flex;
     flex-direction: column;
     transition: .25s;
-    transform: translateX(150%);
+    transform: translateX(${props => props.transform});
     margin: 16px;
     border: 1px solid ${props => props.primary};
     border-radius: ${props => props.theme.style.appRadius}px;
@@ -48,13 +48,21 @@ const Notification = ({ title, message, id, themeState }) => {
         inputRef = element;
     }
 
+    let transform = () => {
+        if(themeState.notificationsPosition === 'topLeft' || themeState.notificationsPosition === 'bottomLeft') {
+            return '-150%';
+        } 
+        return '150%';
+        
+    }
+
     useEffect(() => {
         inputRef.style.transform = 'translateX(0px)';
     });
 
     setTimeout(() => {
         if(inputRef) {
-            inputRef.style.transform = 'translateX(150%)';
+            inputRef.style.transform = `translateX(${transform()})`;
         }
     }, 9750);
 
@@ -66,7 +74,7 @@ const Notification = ({ title, message, id, themeState }) => {
     }
 
     return(
-        <StyledNotification ref={setInputRef} primary={themeState.primary} onClick={removeEarlier}>
+        <StyledNotification ref={setInputRef} primary={themeState.primary} onClick={removeEarlier} transform={transform()}>
             <TopBar>
                 <Title>{title}</Title>
             </TopBar>

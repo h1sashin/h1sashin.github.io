@@ -114,3 +114,12 @@ export const removeNotification = (id) => {
         }
     }
 }
+
+export const changeNotificationsPosition = (position) => {
+    return {
+        type: 'CHANGE_NOTIFICATIONS_POSITION',
+        payload: {
+            position
+        }
+    }
+}

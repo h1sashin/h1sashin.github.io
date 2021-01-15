@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import styled, { ThemeProvider } from 'styled-components';
 import { lightTheme, darkTheme } from 'themes/Themes';
 import Taskbar from 'components/organisms/Taskbar';
@@ -9,6 +9,8 @@ import Console from 'apps/console/Console';
 import { connect } from 'react-redux';
 import { styleRounded, styleBasic } from 'themes/Styles';
 import Container from 'components/organisms/notifications/Container';
+import { topLeft, topRight, bottomLeft, bottomRight } from 'themes/Notifications'
+import * as notifications from 'components/organisms/notifications/actions';
 
 const DesktopStyled = styled.div`
     height: ${props => props.theme.style.desktopHeight}vh;
@@ -30,9 +32,29 @@ const System = styled.div`
 
 const Desktop = ({ theme }) => {
 
+    useEffect(() => {
+        notifications.display('Welcome!', 'Welcome to my portfolio, use the Taskbar below to see some magic of Web Operating System similar to linux based systems');
+    }, []);
+
+    const notificationsPosition = () => {
+        switch(theme.notificationsPosition) {
+            case 'topRight':
+                return topRight;
+            case 'topLeft':
+                return topLeft;
+            case 'bottomLeft':
+                return bottomLeft;
+            case 'bottomRight':
+                return bottomRight;
+            default: 
+                return topRight;
+        }
+    }
+
     const currentTheme = {
         mode: theme.mode === 'dark' ? darkTheme : lightTheme,
-        style: theme.style === 'rounded' ? styleRounded : styleBasic
+        style: theme.style === 'rounded' ? styleRounded : styleBasic,
+        notifications: notificationsPosition()
     }
 
     return(

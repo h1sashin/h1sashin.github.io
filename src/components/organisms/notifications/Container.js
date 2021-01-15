@@ -5,9 +5,15 @@ import Notification from './Notification';
 
 const ContainerStyled = styled.div`
     position: absolute;
-    right: 0;
+    right: ${props => props.theme.notifications.right};
     top: 0;
+    left: ${props => props.theme.notifications.left};
+    display: flex;
+    flex-wrap: wrap;
+    align-items: ${props => props.theme.notifications.align};
+    flex-direction: ${props => props.theme.notifications.direction};
     z-index: 99999999999999999999;
+    height: 100%;
 `;
 
 const Container = ({ notifications }) => {
@@ -15,7 +21,7 @@ const Container = ({ notifications }) => {
         <ContainerStyled>
             {notifications.map(item => {
                 return (
-                    item && <Notification key={item.id} {...item} />
+                    item && <Notification key={item.id} {...item}/>
                 )
             })}
         </ContainerStyled>
@@ -24,7 +30,8 @@ const Container = ({ notifications }) => {
 
 const mapStateToProps = (state) => {
     return {
-        notifications: state.notificationReducer.notifications
+        notifications: state.notificationReducer.notifications,
+        position: state.themeReducer.notificationsPosition
     }
 }
 
