@@ -1,5 +1,5 @@
 const initialState = {
-    style: 'rounded',
+    style: 'basic',
     primary: '#80CED6',
     mode: 'dark',
     iconType: 'icon',

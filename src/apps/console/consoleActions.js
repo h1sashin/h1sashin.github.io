@@ -107,10 +107,6 @@ export const applyCommand = (action) => {
                 }
             case 'style':
                 return 'Stylig through the console is not ready yet';
-            case 'pope':
-                return 'John Paul the Second ';
-            case 'jd':
-                return 'Confirmed!';
             default:
                 return `${command[0]} is not recognized as internal command`;
         }
