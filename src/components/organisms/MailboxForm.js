@@ -3,6 +3,7 @@ import styled from 'styled-components';
 import emailjs from 'emailjs-com';
 import { connect } from 'react-redux';
 import * as notification from 'components/organisms/notifications/actions'
+import { config } from 'config';
 
 const FormStyled = styled.form`
     width: 100%;
@@ -97,14 +98,10 @@ const MailboxForm = ({ color }) => {
         message
     }
 
-    const serviceID = 'service_04cxlcu';
-    const templateID = 'template_mfwycql';
-    const userID = 'user_eu2xVs25l5ZqMyIpbGQ1R';
-
     const submit = (e) => {
         e.preventDefault();
         if(to === 'hiszaszin@gmail.com') {
-            emailjs.send(serviceID, templateID, mailData, userID)
+            emailjs.send(config.serviceID, config.templateID, mailData, config.userID)
                 .then((response) => {
                     notification.display('Message sent!', `Message has been sent! \n Status: ${response.status} \n Text: ${response.text}`);
                 }, (error) => {
