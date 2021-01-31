@@ -35,7 +35,6 @@ const Switch = ({ left, right, dispatch, color }) => {
         <SwitchStyled color={color} checked={checked} onClick={() => {
             setChecked(!checked);
             dispatch(!checked ? right : left);
-            console.log(dispatch);
         }}>
             <label>{left}</label>
             <label>{right}</label>

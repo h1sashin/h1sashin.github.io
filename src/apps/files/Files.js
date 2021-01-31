@@ -4,9 +4,9 @@ import { portfolioData, resumeData } from 'data';
 import styled, { css } from 'styled-components';
 import App from 'apps/App';
 import file from 'assets/img/places/description-black.svg';
-import SidebarStyled from 'components/atoms/SidebarStyled';
-import Child from 'components/atoms/Child';
-import ContentStyled from 'components/atoms/ContentStyled';
+import SidebarStyled from 'components/desktop/atoms/SidebarStyled';
+import Child from 'components/desktop/atoms/Child';
+import ContentStyled from 'components/desktop/atoms/ContentStyled';
 import icon from 'assets/img/apps/files.svg';
 
 const Button = styled.button`

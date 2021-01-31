@@ -1,16 +1,16 @@
 import React, { useEffect } from 'react';
 import styled, { ThemeProvider } from 'styled-components';
 import { lightTheme, darkTheme } from 'themes/Themes';
-import Taskbar from 'components/organisms/Taskbar';
+import Taskbar from 'components/desktop/organisms/Taskbar';
 import Files from 'apps/files/Files';
 import Settings from 'apps/settings/Settings';
 import Mailbox from 'apps/mailbox/Mailbox';
 import Console from 'apps/console/Console';
 import { connect } from 'react-redux';
 import { styleRounded, styleBasic } from 'themes/Styles';
-import Container from 'components/organisms/notifications/Container';
+import Container from 'components/desktop/organisms/notifications/Container';
 import { topLeft, topRight, bottomLeft, bottomRight } from 'themes/Notifications'
-import * as notifications from 'components/organisms/notifications/actions';
+import * as notifications from 'components/desktop/organisms/notifications/actions';
 
 const DesktopStyled = styled.div`
     height: ${props => props.theme.style.desktopHeight}vh;

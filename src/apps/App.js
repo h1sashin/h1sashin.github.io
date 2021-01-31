@@ -2,7 +2,7 @@
 import React, { useState } from 'react';
 import { Rnd as Draggable } from 'react-rnd';
 import styled from 'styled-components';
-import TitleBar from 'components/molecules/TitleBar';
+import TitleBar from 'components/desktop/molecules/TitleBar';
 import { connect } from 'react-redux';
 import { openApp, minimizeApp, maximizeApp, updateSize, updatePosition } from 'actions';
 import zIndex from 'apps/zIndex.json';

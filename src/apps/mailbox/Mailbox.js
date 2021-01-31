@@ -1,13 +1,14 @@
 import React, { createContext, useContext, useState } from 'react';
 import styled from 'styled-components';
-import SidebarStyled from 'components/atoms/SidebarStyled';
+import SidebarStyled from 'components/desktop/atoms/SidebarStyled';
 import { connect } from 'react-redux';
 import App from 'apps/App';
-import ContentStyled from 'components/atoms/ContentStyled';
-import Child from 'components/atoms/Child';
-import MailboxItem from 'components/molecules/MailboxItem';
-import MailboxForm from 'components/organisms/MailboxForm';
+import ContentStyled from 'components/desktop/atoms/ContentStyled';
+import Child from 'components/desktop/atoms/Child';
+import MailboxItem from 'components/desktop/molecules/MailboxItem';
+import MailboxForm from 'components/desktop/organisms/MailboxForm';
 import icon from 'assets/img/apps/mailbox.svg';
+import { messages } from 'apps/mailbox/messages';
 
 
 const MessageContainer = styled.div`
@@ -35,32 +36,6 @@ const Context = createContext({
     currentIndex: null,
     setIndex: () => {},
 });
-
-const messages = [
-    {
-        id: 0,
-        title: 'New message',
-        message: 'addNew',
-    },
-    {
-        id: 1,
-        from: 'cdprfannumber1@gmail.com',
-        title: 'Fix cyberpunk',
-        message: `fix these bugs, this game is unplayable. Refund me my money you don't deserve it.`
-    },
-    {
-        id: 2,
-        from: 'unknown',
-        title: '01001110',
-        message: '00110010 00110001 00110011 00110111 00100000 00111001 00111001 00110111 00100000 00110010 00110001 00110001 00110101'
-    },
-    {
-        id: 3,
-        from: 'hiszaszin@gmail.com',
-        title: `About the website`,
-        message: `This website isn't currently what I want it to be, It's not fully styled as should be, and not fully functional as I want it to be. I'll keep updating it till it is what I hava in my mind. New apps, new features, more personalisation, more console functionality, pseudo web browser, cookies etc.`
-    }
-]
 
 const Sidebar = () => {
     const { setIndex } = useContext(Context);

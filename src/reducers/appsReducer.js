@@ -45,9 +45,13 @@ const initialState = {
     }
 }
 
+let prevState = {};
+
 const appsReducer = (state = initialState, action) => {
+    let obj = {};
     switch (action.type) {
         case 'OPEN_APP':
+            prevState = state;
             return {
                 ...state,
                 [action.payload.app]: {
@@ -55,7 +59,32 @@ const appsReducer = (state = initialState, action) => {
                     isOpen: !state[action.payload.app].isOpen
                 }
             }
+        case 'OPEN_APP_MOBILE':
+            prevState = state;
+            obj = {};
+            Object.keys(state).map((element) => {
+                if(element === action.payload.app) {
+                    Object.assign(obj, {
+                        [action.payload.app]: {
+                            ...state[action.payload.app],
+                            isOpen: !state[action.payload.app].isOpen,
+                            isMinimized: false
+                        }
+                    })
+                } else {
+                    Object.assign(obj, {
+                        [element]: {
+                            ...state[element],
+                            isMinimized: state[element].isOpen ? true : state[element].isMinimized
+                        }
+                    })
+                }
+            })
+            return {
+                ...obj
+            }
         case 'MINIMIZE_APP':
+            prevState = state;
             return {
                 ...state,
                 [action.payload.app]: {
@@ -63,7 +92,31 @@ const appsReducer = (state = initialState, action) => {
                     isMinimized: !state[action.payload.app].isMinimized
                 }
             }
+        case 'MINIMIZE_APP_MOBILE':
+            prevState = state;
+            obj = {};
+            Object.keys(state).map((element) => {
+                if(element === action.payload.app) {
+                    Object.assign(obj, {
+                        [action.payload.app]: {
+                            ...state[action.payload.app],
+                            isMinimized: false
+                        }
+                    });
+                } else {
+                    Object.assign(obj, {
+                        [element]: {
+                            ...state[element],
+                            isMinimized: state[element].isOpen ? true : state[element].isMinimized
+                        }
+                    });
+                }
+            })
+            return {
+                ...obj
+            }
         case 'MAXIMIZE_APP':
+            prevState = state;
             return {
                 ...state,
                 [action.payload.app]: {
@@ -72,6 +125,7 @@ const appsReducer = (state = initialState, action) => {
                 }
             }
         case 'UPDATE_SIZE':
+            prevState = state;
             return {
                 ...state,
                 [action.payload.app]: {
@@ -83,6 +137,7 @@ const appsReducer = (state = initialState, action) => {
                 }
             }
         case 'UPDATE_POSITION':
+            prevState = state;
             return {
                 ...state,
                 [action.payload.app]: {
@@ -91,9 +146,37 @@ const appsReducer = (state = initialState, action) => {
                     y: [action.payload.d.y]
                 }
             }
+        case 'CLOSE_ALL_APPS':
+            prevState = state;
+            // eslint-disable-next-line no-case-declarations
+            obj = {};
+            Object.keys(state).map((element) => {
+                Object.assign(obj, {
+                    [element]: {
+                        ...state[element],
+                        isMinimized: !!state[element].isOpen
+                    }
+                });
+            })
+            return {
+                ...obj
+            }
+        
+        case 'PREV_STATE':
+            return {
+                ...prevState
+            }
         default:
             return state;
     }
 };
 
 export default appsReducer;
+
+// return {
+//     ...state,
+//     [action.payload.app]: {
+//         ...state[action.payload.app],
+//         isOpen: !state[action.payload.app].isOpen
+//     }
+// }

@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import styled from 'styled-components';
 import emailjs from 'emailjs-com';
 import { connect } from 'react-redux';
-import * as notification from 'components/organisms/notifications/actions'
+import * as notification from 'components/desktop/organisms/notifications/actions'
 import { config } from 'config';
 
 const FormStyled = styled.form`

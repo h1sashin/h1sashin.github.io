@@ -7,9 +7,25 @@ export const openApp = (app) => {
     }
 }
 
+export const openAppMobile = (app) => {
+    return {
+        type: 'OPEN_APP_MOBILE',
+        payload: {
+            app
+        }
+    }
+}
+
 export const minimizeApp = (app) => {
     return {
         type: 'MINIMIZE_APP',
+        payload: { app }
+    }
+}
+
+export const minimizeAppMobile = (app) => {
+    return {
+        type: 'MINIMIZE_APP_MOBILE',
         payload: { app }
     }
 }
@@ -123,3 +139,9 @@ export const changeNotificationsPosition = (position) => {
         }
     }
 }
+
+export const closeAllApps = () => {
+    return {
+        type: 'CLOSE_ALL_APPS'
+    }
+} 

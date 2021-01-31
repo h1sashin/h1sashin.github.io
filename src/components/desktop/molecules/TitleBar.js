@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import ActionButton from 'components/molecules/ActionButton';
+import ActionButton from 'components/desktop/molecules/ActionButton';
 
 const Bar = styled.div`
     width: 100%;

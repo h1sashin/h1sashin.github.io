@@ -2,7 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import FilesIcon from 'apps/files/FilesIcon';
 import SettingsIcon from 'apps/settings/SettingsIcon';
-import Clock from 'components/molecules/Clock';
+import Clock from 'components/desktop/molecules/Clock';
 import MailboxIcon from 'apps/mailbox/MailboxIcon'; 
 import ConsoleIcon from 'apps/console/ConsoleIcon';
 import { connect } from 'react-redux';

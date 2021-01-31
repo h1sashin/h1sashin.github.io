@@ -3,7 +3,7 @@ import styled, { css } from 'styled-components';
 import { connect } from 'react-redux';
 import App from 'apps/App';
 import { TwitterPicker } from 'react-color';
-import Switch from 'components/atoms/Switch';
+import Switch from 'components/desktop/atoms/Switch';
 // import desktop from 'assets/img/preferences/preferences-desktop.svg';
 import app from 'assets/img/preferences/preferences-app.svg';
 import colors from 'assets/img/preferences/preferences-colors.svg';
