@@ -7,8 +7,9 @@ const AppStyled = styled.div`
     background: #ffffff;
     position: absolute;
     transition: .25s;
-    ${props => props.isMinimized && css`
-        transform: translateY(50%) scale(0);
+    transform: translateY(50%) scale(0);
+    ${props => !props.isMinimized && css`
+        transform: translateY(0) scale(1);
     `}
 `;
 
