@@ -1,5 +1,5 @@
 import styled, { css } from 'styled-components';
-import main from 'assets/img/places/folder-black.svg';
+import main from 'assets/img/places/dir.svg';
 
 const SidebarStyled = styled.div`
     left: 0;

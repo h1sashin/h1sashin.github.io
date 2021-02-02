@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import { portfolioData, resumeData } from 'data';
 import styled, { css } from 'styled-components';
 import App from 'apps/App';
-import file from 'assets/img/places/description-black.svg';
+import file from 'assets/img/places/dir.svg';
 import SidebarStyled from 'components/desktop/atoms/SidebarStyled';
 import Child from 'components/desktop/atoms/Child';
 import ContentStyled from 'components/desktop/atoms/ContentStyled';

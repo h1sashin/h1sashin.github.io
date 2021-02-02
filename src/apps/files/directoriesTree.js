@@ -2,11 +2,13 @@ export const directoriesTree = {
     path: 'main',
     name: 'main',
     type: 'directory',
+    extension: 'not applicable',
     children: [
         {
             path: 'main/skills',
             name: 'skills',
             type: 'directory',
+            extension: 'not applicable',
             component: <h1>skills</h1>,
             children: [
                 {
@@ -25,7 +27,7 @@ export const directoriesTree = {
                     path: 'main/skills/javascript.txt',
                     name: 'javascript',
                     type: 'file',
-                    extenstion: '.txt'
+                    extension: '.txt'
                 },
                 {
                     path: 'main/skills/react.txt',
@@ -43,7 +45,7 @@ export const directoriesTree = {
                     path: 'main/skills/python.txt',
                     name: 'python',
                     type: 'file',
-                    extenstion: '.txt'
+                    extension: '.txt'
                 },
                 {
                     path: 'main/skills/mysql.txt',
@@ -57,6 +59,7 @@ export const directoriesTree = {
             path: 'main/education',
             name: 'education',
             type: 'directory',
+            extension: 'not applicable',
             component: <h1>education</h1>,
             children: [
                 {
@@ -71,6 +74,7 @@ export const directoriesTree = {
             path: 'main/experience',
             name: 'experience',
             type: 'directory',
+            extension: 'not applicable',
             component: <h1>experience</h1>,
             children: [
                 {
@@ -83,7 +87,7 @@ export const directoriesTree = {
                     path: 'main/experience/zeto',
                     name: 'ZETO S.A.',
                     type: 'file',
-                    extension: '.png'
+                    extension: '.pdf'
                 }
             ]
         },
@@ -91,6 +95,7 @@ export const directoriesTree = {
             path: 'main/certificates',
             name: 'certificates',
             type: 'directory',
+            extension: 'not applicable',
             component: <h1>certificates</h1>,
             children: []
         }
