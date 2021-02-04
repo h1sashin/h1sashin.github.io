@@ -1,5 +1,5 @@
 import React from 'react';
-import styled, { keyframes } from 'styled-components';
+import styled, { keyframes, css } from 'styled-components';
 
 const clickAnimation = keyframes`
     0% { background: black; }
@@ -22,11 +22,20 @@ const Button = styled.button`
     img {
         height: 32px;
     }
+    ${props => props.disabled && css`
+        opacity: 0;
+        &:active {
+            animation: none;
+        }
+        img {
+            opacity: 0;
+        }
+    `}
 `;
 
-const NavButton = ({ img, onClick, action}) => {
+const NavButton = ({ img, onClick, action, disabled}) => {
     return (    
-        <Button onClick={() => onClick()}>
+        <Button onClick={() => onClick()} disabled={disabled}>
             <img src={img} alt={action} />
         </Button>
     );

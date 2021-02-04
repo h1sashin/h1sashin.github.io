@@ -33,7 +33,7 @@ const MobileNav = ({ closeAllApps }) => {
     return (
         <Nav>
             <Container>
-                <NavButton img={back} onClick={() => console.log('Back')} action='back' />
+                <NavButton img={back} action='none' disabled />
                 <NavButton img={home} onClick={closeAllApps} action='home' />
                 <NavButton img={menu} onClick={() => console.log('Apps')} action='menu' />
             </Container>

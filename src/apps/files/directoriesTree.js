@@ -1,9 +1,18 @@
-import Skills from 'apps/files/views/Skills';
 import html from 'assets/img/skills/html.png';
 import css from 'assets/img/skills/css.png';
 import javascript from 'assets/img/skills/javascript.png';
 import react from 'assets/img/skills/react.png';
 import php from 'assets/img/skills/php.png';
+import zse from 'assets/img/logos/zse.png';
+import clevercode from 'assets/img/logos/clevercode.png';
+import zeto from 'assets/img/logos/zetosa.png'
+import cke from 'assets/img/logos/cke.png';
+import portfolio from 'assets/img/portfolio/portfolio.png';
+import Experience from './views/Experience';
+import Certificates from './views/Certificates';
+import Skills from './views/Skills';
+import Education from './views/Education';
+import Portfolio from './views/Portfolio';
 
 export const directoriesTree = [
     {
@@ -12,6 +21,27 @@ export const directoriesTree = [
         type: 'directory',
         extension: 'not applicable',
         children: [
+            {
+                path: 'main/portfolio',
+                name: 'portfolio',
+                type: 'directory',
+                extension: 'not applicable',
+                children: [
+                    {
+                        path: 'main/portfolio/portfolio.lnk',
+                        name: 'portfolio',
+                        type: 'file',
+                        extension: '.lnk',
+                        image: portfolio,
+                        component: <Portfolio />,
+                        data: {
+                            about: `My first React project, I've spent a lot of time making is as good and functional as I can`,
+                            github: 'https://github.com/Hisashin7331/Hisashin7331.github.io',
+                            live: 'https://hisashin7331.github.io/',
+                        }
+                    }
+                ]
+            },
             {
                 path: 'main/skills',
                 name: 'skills',
@@ -95,13 +125,19 @@ export const directoriesTree = [
                 name: 'education',
                 type: 'directory',
                 extension: 'not applicable',
-                component: <h1>education</h1>,
                 children: [
                     {
                         path: 'main/education/zse.png',
                         name: 'Zespół Szkół Elektrycznych',
                         type: 'file',
-                        extenstion: '.png'
+                        extension: '.png',
+                        image: zse,
+                        component: <Education />,
+                        data: {
+                            yearsFrom: 2016,
+                            yearsTo: 2020,
+                            field: 'IT Specialist',
+                        }
                     }
                 ]
             },
@@ -110,19 +146,30 @@ export const directoriesTree = [
                 name: 'experience',
                 type: 'directory',
                 extension: 'not applicable',
-                component: <h1>experience</h1>,
                 children: [
                     {
                         path: 'main/experience/clevercode.pdf',
                         name: 'CleverCode',
                         type: 'file',
-                        extension: '.png'
+                        extension: '.pdf',
+                        image: clevercode,
+                        component: <Experience />,
+                        data: {
+                            year: 2019,
+                            field: 'PHP dev'
+                        }
                     },
                     {
                         path: 'main/experience/zeto.pdf',
                         name: 'ZETO S.A.',
                         type: 'file',
-                        extension: '.pdf'
+                        extension: '.pdf',
+                        image: zeto,
+                        component: <Experience />,
+                        data: {
+                            year: 2018,
+                            field: 'PC Service'
+                        }
                     }
                 ]
             },
@@ -131,8 +178,24 @@ export const directoriesTree = [
                 name: 'certificates',
                 type: 'directory',
                 extension: 'not applicable',
-                component: <h1>certificates</h1>,
-                children: []
+                children: [
+                    {
+                        path: 'main/experience/it-specialist.pdf',
+                        name: 'IT Specialist',
+                        type: 'file',
+                        extension: '.pdf',
+                        image: cke,
+                        component: <Certificates />,
+                        data: {
+                            acquired: 2020,
+                            including: [
+                                'E.12',
+                                'E.13',
+                                'E.14'
+                            ]
+                        }
+                    }
+                ]
             }
         ]
     }

@@ -6,7 +6,6 @@ import App from 'apps/App';
 import { applyCommand } from 'apps/console/consoleActions';
 import icon from 'assets/img/apps/terminal.svg';
 
-
 const ConsoleStyled = styled.div`
     width: calc(100% - 8px);
     height: calc(100% - 8px);

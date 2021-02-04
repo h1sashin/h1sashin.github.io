@@ -2,14 +2,17 @@
 import React, { useState, cloneElement } from 'react';
 import styled from 'styled-components';
 import { connect } from 'react-redux';
+import { ReactComponent as Dir } from 'assets/img/places/dir.svg';
 import MobileApp from 'apps/MobileApp';
 import { directoriesTree } from 'apps/files/directoriesTree';
 import Path from 'components/mobile/atoms/Path';
 import FileIcon from 'components/mobile/atoms/FileIcon';
+import BottomBar from 'components/mobile/atoms/BottomBar';
+import Button from 'components/mobile/atoms/Button';
 
 const Grid = styled.div`
     width: 100%;
-    height: calc(100% - 96px);
+    height: calc(100% - 96px - 64px);
     display: grid;
     align-content: flex-start;
     justify-content: center;
@@ -51,7 +54,16 @@ const FilesMobile = ({ files }) => {
             <Grid>
                 {findPath(currentPath, directoriesTree)}
             </Grid>
-            <button onClick={() => updatePath('main')} type='button' style={{ position: 'absolute', left: 0, bottom: 0}}>Back to /main</button>
+            <BottomBar>
+                <Button opacity={currentPath === 'main' ? '1' : '0.6'} onClick={() => updatePath('main')}>
+                    <Dir fill={currentPath === 'main' && '#1167B1'}/>
+                    <h1 style={{ color: currentPath === 'main' ? '#1167B1' : 'black'}}>Main</h1>
+                </Button>
+                <Button opacity={currentPath === 'main/portfolio' ? '1' : '0.6'} onClick={() => updatePath('main/portfolio')}>
+                    <Dir fill={currentPath === 'main/portfolio' ? '#1167B1' : 'black'}/>
+                    <h1 style={{ color: currentPath === 'main/portfolio' && '#1167B1' }}>Portfolio</h1>
+                </Button>
+            </BottomBar>
         </MobileApp>
     )
 }

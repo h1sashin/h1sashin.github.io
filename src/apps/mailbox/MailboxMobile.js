@@ -85,16 +85,14 @@ const NavBar = () => {
     const { currentIndex, setIndex } = useContext(Context);
     return (
         <BottomBar>
-            <BottomBar>
-                    <Button opacity={currentIndex !== 1 ? '1' : '0.6'} onClick={() => setIndex(0)}>
-                        <Mail fill={currentIndex !== 1 && 'red'}/>
-                        <h1 style={{ color: currentIndex !== 1 ? 'red' : 'black'}}>Mail</h1>
-                    </Button>
-                    <Button opacity={currentIndex === 1 ? '1' : '0.6'} onClick={() => setIndex(1)}>
-                        <Compose fill={currentIndex === 1 ? 'red' : 'black'}/>
-                        <h1 style={{ color: currentIndex === 1 && 'red' }}>Compose</h1>
-                    </Button>
-                </BottomBar>
+            <Button opacity={currentIndex !== 1 ? '1' : '0.6'} onClick={() => setIndex(0)}>
+                <Mail fill={currentIndex !== 1 && 'red'}/>
+                <h1 style={{ color: currentIndex !== 1 ? 'red' : 'black'}}>Mail</h1>
+            </Button>
+            <Button opacity={currentIndex === 1 ? '1' : '0.6'} onClick={() => setIndex(1)}>
+                <Compose fill={currentIndex === 1 ? 'red' : 'black'}/>
+                <h1 style={{ color: currentIndex === 1 && 'red' }}>Compose</h1>
+            </Button>
         </BottomBar>
     )
 }
