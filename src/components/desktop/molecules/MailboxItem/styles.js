@@ -1,4 +1,3 @@
-import React from 'react';
 import styled, { css } from 'styled-components';
 
 const Item = styled.div`
@@ -33,17 +32,4 @@ const From = styled.span`
     opacity: 0.5;
 `;
 
-const MailboxItem = ({ onClick, from, message, title, index }) => {
-    if(message){ 
-        return(    
-            <Item onClick={() => onClick(index)} index={index}>
-                <span>{title}</span>
-                {message === 'addNew' ? null : <Message>{message.slice(0, 18)}...</Message>}
-                {from === '' ? null : <From>{from}</From>}
-            </Item>
-        );
-    } 
-    return null;
-}
-
-export default MailboxItem;
+export { Item, Message, From };

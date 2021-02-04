@@ -1,7 +1,5 @@
 /* eslint-disable no-nested-ternary */
-import React from 'react';
 import styled, { css } from 'styled-components';
-import { connect } from 'react-redux';
 import exitWhite from 'assets/img/symbolic/close-white.svg';
 import minimizeWhite from 'assets/img/symbolic/minimize-white.svg';
 import maximizeWhite from 'assets/img/symbolic/fullscreen-white.svg';
@@ -19,7 +17,7 @@ const Button = styled.button`
     background-color: transparent;
     border: none;
     background-position: center;
-    
+
     &:focus {
         outline: 0;
     }
@@ -41,17 +39,4 @@ const Button = styled.button`
     `}
 `;
 
-const ActionButton = ({ onClick, action, appName, isMaximized, themeState }) => {
-    const { mode, theme } = themeState;
-    return(
-        <Button onClick={() => onClick(appName)} action={action} isMaximized={isMaximized} mode={mode} theme={theme} />
-    );
-}
-
-const mapStateToProps = (state) => {
-    return {
-        themeState: state.themeReducer
-    }
-}
-
-export default connect(mapStateToProps)(ActionButton);
+export { Button };

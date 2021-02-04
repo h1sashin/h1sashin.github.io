@@ -1,5 +1,4 @@
 import React, { createContext, useContext, useState } from 'react';
-import styled from 'styled-components';
 import SidebarStyled from 'components/desktop/atoms/SidebarStyled';
 import { connect } from 'react-redux';
 import App from 'apps/App';
@@ -9,28 +8,7 @@ import MailboxItem from 'components/desktop/molecules/MailboxItem';
 import MailboxForm from 'components/desktop/organisms/MailboxForm';
 import icon from 'assets/img/apps/mailbox.svg';
 import { messages } from 'apps/mailbox/messages';
-
-
-const MessageContainer = styled.div`
-    padding: 16px;
-    width: calc(100% - 32px);
-    height: calc(100% - 32px);
-    display: flex;
-    flex-direction: column;
-    color: ${props => props.theme.mode.text};
-`;
-
-const Title = styled.h1`
-    margin-bottom: 16px;
-`;
-
-const From = styled.header`
-    margin-bottom: 8px;
-`;
-
-const Message = styled.article`
-
-`;
+import { MessageContainer, Title, From, Message } from './styles';
 
 const Context = createContext({
     currentIndex: null,

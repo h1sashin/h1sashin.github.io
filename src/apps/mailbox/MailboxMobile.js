@@ -1,5 +1,4 @@
 import React, { useState, createContext, useContext } from 'react';
-import styled from 'styled-components';
 import MobileApp from 'apps/MobileApp';
 import { connect } from 'react-redux';
 // import plus from 'assets/img/symbolic/plus.svg';
@@ -11,28 +10,7 @@ import MailboxForm from 'components/mobile/organisms/MailboxForm';
 import { messages } from 'apps/mailbox/messages';
 import Message from 'components/mobile/molecules/Message';
 import MessageDetails from 'components/mobile/molecules/MessageDetails';
-
-
-const Mailbox = styled.div`
-    width: 100%;
-    min-height: calc(100% - 64px);
-    background: white;
-    color: black;
-    position: relative;
-`;
-
-const Home = styled.div`
-    width: 100%;
-    min-height: 100%;
-    display: flex;
-    flex-direction: column;
-    font-size: 16px;
-    h1 {
-        margin: 8px;
-        font-size: 16px;
-        opacity: 0.75;
-    }
-`;
+import { Mailbox, Home } from './styles';
 
 const Context = createContext({
     currentIndex: 1,
@@ -103,7 +81,7 @@ const Wizard = ({ children }) => {
         <Context.Provider value={{
             currentIndex,
             setIndex
-        }}>
+        }} style={{ display: 'flex', flexDirection: 'column' }}>
             {children}
         </Context.Provider>
     )

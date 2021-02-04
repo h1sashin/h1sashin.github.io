@@ -42,6 +42,11 @@ export const MobileStyle = createGlobalStyle`
     overflow: hidden;
   }
 
+  * {
+    overflow-y: auto;
+    overflow-x: hidden;
+  }
+
   body {
     height: 100%;
     margin: 0;

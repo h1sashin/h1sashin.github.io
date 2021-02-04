@@ -1,7 +1,10 @@
 import styled, { css } from 'styled-components';
 
 const Styled = styled.div`
+    overflow: scroll;
+    overflow-y: auto;
     position: absolute;
+    top: 16px;
     width: calc(100% - 32px);
     height: calc(100% - 32px);
     padding: 16px;

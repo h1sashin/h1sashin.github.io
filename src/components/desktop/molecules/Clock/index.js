@@ -1,20 +1,6 @@
 import React, { useEffect, useState } from 'react';
-import styled from 'styled-components';
 import { connect } from 'react-redux';
-
-const ClockStyled = styled.div`
-    font-size: 1em;
-    height: 100%;
-    display: flex;
-    align-items: center;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    span {
-        font-size: 0.5em;
-    }
-`;
+import { ClockStyled } from './styles';
 
 const Clock = ({ dateFormat, dateHide }) => {
     const [ date, updateDate ] = useState(new Date());
