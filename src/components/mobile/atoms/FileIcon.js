@@ -44,7 +44,6 @@ const iconChooser = (type, extension) => {
 const FileIcon = ({ fileName, fileType, fileExtension, fileOnClick, filePath }) => {
     return (
         <Item onClick={() => fileOnClick(filePath)}>
-            {console.log(fileType, fileExtension)}
             <img src={iconChooser(fileType, fileExtension)} alt={fileName} />
             <span>{fileName}</span>
         </Item>

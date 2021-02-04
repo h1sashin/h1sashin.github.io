@@ -1,4 +1,5 @@
-import React, { useState } from 'react';
+/* eslint-disable no-nested-ternary */
+import React, { useState, cloneElement } from 'react';
 import styled from 'styled-components';
 import { connect } from 'react-redux';
 import MobileApp from 'apps/MobileApp';
@@ -8,7 +9,7 @@ import FileIcon from 'components/mobile/atoms/FileIcon';
 
 const Grid = styled.div`
     width: 100%;
-    height: calc(100% - 128px);
+    height: calc(100% - 96px);
     display: grid;
     align-content: flex-start;
     justify-content: center;
@@ -16,24 +17,41 @@ const Grid = styled.div`
     grid-template-rows: repeat(auto-fill, minmax(90px, 125px));
     align-items: center;
     justify-items: center;
+    position: relative;
 `;
+
 
 const FilesMobile = ({ files }) => {
     const { isOpen, isMinimized } = files;
     const [ currentPath, updatePath ] = useState('main');
-    console.log(updatePath);
+
+    const findPath = (path, array = directoriesTree) => {
+        // eslint-disable-next-line consistent-return
+        return array.reduce((a, item) => {
+            if(a) {
+                return a; 
+            }
+            if(item.path === path) {
+                if(item.type === 'directory') {
+                    return item.children.map(e => {
+                        return <FileIcon key={e.name} fileName={e.name} fileType={e.type} fileExtension={e.extension} fileOnClick={updatePath} filePath={e.path} />
+                    })
+                }
+                return cloneElement(item.component, {...item});
+            }
+            if(item.children) {
+                return findPath(path, item.children);
+            }
+        }, null);
+    }
+
     return (
         <MobileApp isOpen={isOpen} isMinimized={isMinimized} style={{ display: 'flex', flexDirection: 'column' }}>
             <Path currentPath={currentPath} />
             <Grid>
-                {currentPath === 'main' ? directoriesTree.children.map((item) => {
-                    return <FileIcon key={item.name} fileName={item.name} fileType={item.type} fileExtenstion={item.extension} fileOnClick={updatePath} filePath={item.path} /> 
-                }) : directoriesTree.children.filter(item => item.path === currentPath).map(item => {
-                    return item.children.map((it) => {
-                        return <FileIcon key={it.name} fileName={it.name} fileType={it.type} fileExtension={it.extension} fileOnClick={updatePath} filePath={it.path} />
-                    })
-                })}
+                {findPath(currentPath, directoriesTree)}
             </Grid>
+            <button onClick={() => updatePath('main')} type='button' style={{ position: 'absolute', left: 0, bottom: 0}}>Back to /main</button>
         </MobileApp>
     )
 }
@@ -45,3 +63,5 @@ const mapStateToProps = (state) => {
 }
 
 export default connect(mapStateToProps)(FilesMobile);
+
+
