@@ -3,7 +3,7 @@ import { TwitterPicker } from 'react-color';
 
 const Content = styled.div`
     padding-top: 32px;
-    min-height: calc(100% - 32px);
+    height: calc(100% - 32px);
     display: flex;
     justify-content: center;
     align-items: flex-start;

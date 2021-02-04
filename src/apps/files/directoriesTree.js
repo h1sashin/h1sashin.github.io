@@ -35,7 +35,7 @@ export const directoriesTree = [
                         image: portfolio,
                         component: <Portfolio />,
                         data: {
-                            about: `My first React project, I've spent a lot of time making is as good and functional as I can`,
+                            about: `My first React project, I've spent a lot of time developing it to make it as good and functional as possible`,
                             github: 'https://github.com/Hisashin7331/Hisashin7331.github.io',
                             live: 'https://hisashin7331.github.io/',
                         }

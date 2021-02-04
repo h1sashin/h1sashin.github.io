@@ -39,7 +39,7 @@ const TopBar = styled.div`
 const Message = styled.div`
     padding: 16px;
     width: calc(100% - 32px);
-    min-height: calc(100% - 64px - 32px);
+    height: calc(100% - 64px - 32px);
     display: flex;
     flex-direction: column;
     h1 {

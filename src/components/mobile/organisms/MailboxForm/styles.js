@@ -16,7 +16,7 @@ const clickEffect = keyframes`
 
 const Content = styled.div`
     width: 100vw;
-    height: 100%;
+    min-height: 100%;
     display: flex;
     align-items: center;
     flex-direction: column;
@@ -67,17 +67,17 @@ const Form = styled.form`
     width: 100%;
     display: flex;
     flex-direction: column;
-    span { 
+    span {
+        height: 64px;
+        overflow: hidden;
         display: flex; 
         border-bottom: rgb(0,0,0,0.1) solid 1px;
     }
-    overflow: scroll;
-    overflow-y: auto;
-    overflow-x: hidden;
 `;
 
 const Input = styled.input`
     height: 64px;
+    overflow: hidden;
     width: ${props => props.gotLabel ? 'calc(100% - 64px)' : 'calc(100% - 8px)'};
     border: none;
     border-bottom: ${props => props.gotLabel ? 'none' : 'rgb(0,0,0,0.1) solid 1px'};
@@ -90,6 +90,7 @@ const Input = styled.input`
 
 const TextArea = styled.textarea`
     border: none;
+    min-height: 128px;
     height: calc(100% - 192px - 48px - 9px);
     width: calc(100% - 16px);
     font-size: 1rem;
