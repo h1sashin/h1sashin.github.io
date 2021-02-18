@@ -5,8 +5,8 @@ const initialState = {
         isMaximized: false,
         x: 100,
         y: 100,
-        width: 800,
-        height: 450,
+        width: 960,
+        height: 540,
         appName: 'files',
         version: '0.1'
     },
@@ -27,8 +27,8 @@ const initialState = {
         isMaximized: false,
         x: 100,
         y: 100,
-        width: 800,
-        height: 450,
+        width: 960,
+        height: 540,
         appName: 'mailbox',
         version: '0.1'
     },
@@ -38,9 +38,20 @@ const initialState = {
         isMaximized: false,
         x: 100,
         y: 100,
-        width: 800,
-        height: 450,
+        width: 960,
+        height: 540,
         appName: 'console',
+        version: '0.1'
+    },
+    weather: {
+        isOpen: false,
+        isMinimized: false,
+        isMaximized: false,
+        x: 100,
+        y: 100,
+        width: 960,
+        height: 540,
+        appName: 'weather',
         version: '0.1'
     }
 }
@@ -172,11 +183,3 @@ const appsReducer = (state = initialState, action) => {
 };
 
 export default appsReducer;
-
-// return {
-//     ...state,
-//     [action.payload.app]: {
-//         ...state[action.payload.app],
-//         isOpen: !state[action.payload.app].isOpen
-//     }
-// }

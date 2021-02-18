@@ -20,7 +20,7 @@ const Content = styled.div`
     display: flex;
     align-items: center;
     flex-direction: column;
-    justify-content: space-between;
+    justify-content: flex-start;
 `;
 
 const TopBar = styled.div`
@@ -66,6 +66,7 @@ const Form = styled.form`
     height: 100%;
     width: 100%;
     display: flex;
+    justify-content: flex-start;
     flex-direction: column;
     span {
         height: 64px;

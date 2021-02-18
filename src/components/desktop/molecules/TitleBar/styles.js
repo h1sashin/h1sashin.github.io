@@ -17,7 +17,7 @@ const Bar = styled.div`
         align-items: center;
         margin-left: 16px;
         img {
-            height: 50%;
+            height: 70%;
         }
         h1 {
             font-size: 16px;

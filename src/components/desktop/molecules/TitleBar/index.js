@@ -1,11 +1,13 @@
 import React from 'react';
 import ActionButton from 'components/desktop/molecules/ActionButton';
+import Hamburger from 'components/desktop/atoms/Hamburger';
 import { ActionButtons, Bar } from './styles';
 
-const TitleBar = ({ exit, minimize, maximize, appName, isMaximized, icon }) => {
+const TitleBar = ({ exit, minimize, maximize, appName, isMaximized, icon, withMenu, isMenuOpen, openMenu }) => {
     return(
         <Bar className='dragHandler'>
             <span>
+                {withMenu && <Hamburger margin='16' isMenuOpen={isMenuOpen} openMenu={openMenu} />}
                 <img src={icon} alt={appName} />
                 <h1>{appName.toUpperCase()}</h1>
             </span>

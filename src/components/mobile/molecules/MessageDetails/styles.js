@@ -51,7 +51,7 @@ const Message = styled.div`
         font-size: 16px;
         span {
             margin-left: 8px;
-            dispaly: flex;
+            display: flex;
             justify-content: center;
             flex-direction: column;
             font-weight: 700;

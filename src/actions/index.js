@@ -1,3 +1,8 @@
+// import axios from 'axios';
+// import { config } from 'config';
+
+// const { accuWeatherAPIKey } = config;
+
 export const openApp = (app) => {
     return {
         type: 'OPEN_APP',

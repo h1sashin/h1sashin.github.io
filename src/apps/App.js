@@ -23,7 +23,7 @@ const Application = styled(Draggable)`
 `;
 
 // eslint-disable-next-line no-shadow
-const App = ({ children, isOpen, isMinimized, isMaximized, x, y, width, height, minWidth, minHeight, appName, openApp, minimizeApp, maximizeApp, updateSize, updatePosition, themeState, icon }) => {
+const App = ({ children, isOpen, isMinimized, isMaximized, x, y, width, height, minWidth, minHeight, appName, openApp, minimizeApp, maximizeApp, updateSize, updatePosition, themeState, icon, withMenu, date, isMenuOpen, openMenu }) => {
     const { primary } = themeState;
     const appSize = () => {
         let size = null;
@@ -43,8 +43,8 @@ const App = ({ children, isOpen, isMinimized, isMaximized, x, y, width, height, 
                 primary={primary}
                 zindex={zIndex.zIndex}
                 size={appSize()}
-                minWidth={minWidth || '480'}
-                minHeight={minHeight || '360'}
+                minWidth={minWidth || '720'}
+                minHeight={minHeight || '480'}
                 onDragStart={() => setIndex(index += 1)}
                 onResizeStart={() => setIndex(index += 1)}
                 position={!isMaximized ? { x, y } : { x: 0, y: 0 }}
@@ -54,7 +54,7 @@ const App = ({ children, isOpen, isMinimized, isMaximized, x, y, width, height, 
                 enableResizing={!isMaximized}
                 disableDragging={isMaximized}
             >
-                <TitleBar appName={appName} exit={openApp} minimize={minimizeApp} maximize={maximizeApp} isMaximized={isMaximized} icon={icon}/>
+                <TitleBar appName={appName} exit={openApp} minimize={minimizeApp} maximize={maximizeApp} isMaximized={isMaximized} icon={icon} withMenu={withMenu} date={date} isMenuOpen={isMenuOpen} openMenu={openMenu} />
                 <Content>
                     {children}
                 </Content>
