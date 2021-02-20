@@ -31,7 +31,7 @@ export const portfolioData = [
     name: 'Weather app',
     photo: weatherApp,
     github: 'https://github.com/Hisashin7331/weather-app',
-    live: '',
+    live: 'https://hisashin7331-weather-app.herokuapp.com/',
   },
   {
     assign: 'portfolio',
