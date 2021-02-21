@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled from 'styled-components'
 
 const Bar = styled.div`
     width: 100%;
@@ -9,7 +9,8 @@ const Bar = styled.div`
     justify-content: space-between;
     color: ${props => props.theme.mode.text};
     overflow: auto;
-    border-radius: ${props => props.theme.style.appRadius}px ${props => props.theme.style.appRadius}px 0 0;
+    border-radius: ${props => props.theme.style.appRadius}px
+        ${props => props.theme.style.appRadius}px 0 0;
     position: relative;
     span {
         height: 100%;
@@ -24,10 +25,10 @@ const Bar = styled.div`
             padding-left: 16px;
         }
     }
-`;
+`
 
 const ActionButtons = styled.div`
     height: 100%;
-`;
+`
 
-export { ActionButtons, Bar };
+export { ActionButtons, Bar }

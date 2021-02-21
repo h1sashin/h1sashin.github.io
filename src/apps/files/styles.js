@@ -1,18 +1,22 @@
-import styled, { css } from 'styled-components';
-import file from 'assets/img/places/dir.svg';
+import styled, { css } from 'styled-components'
+import file from 'assets/img/places/dir.svg'
 
 const Grid = styled.div`
     width: 100%;
-    height: calc(100% - 96px - 64px);
+    height: ${props =>
+        props.desktop
+            ? 'calc(100% - 32px)'
+            : 'calc(100% - 96px - 64px)'};
     display: grid;
     align-content: flex-start;
-    justify-content: center;
+    justify-content: ${props =>
+        props.desktop ? 'flex-start' : 'center'};
     grid-template-columns: repeat(auto-fill, minmax(90px, 125px));
     grid-template-rows: repeat(auto-fill, minmax(90px, 125px));
     align-items: center;
     justify-items: center;
     position: relative;
-`;
+`
 
 const Button = styled.button`
     width: 100%;
@@ -22,12 +26,16 @@ const Button = styled.button`
     margin: 0;
     margin-left: -35px;
     color: ${props => props.theme.mode.text};
-    ${props => props.portfolio && css`
-        margin-left: -10px;
-    `}
-    ${props => props.resume && css`
-        margin-left: -20px;
-    `}
+    ${props =>
+        props.portfolio &&
+        css`
+            margin-left: -10px;
+        `}
+    ${props =>
+        props.resume &&
+        css`
+            margin-left: -20px;
+        `}
     li {
         list-style: none;
         display: flex;
@@ -48,7 +56,7 @@ const Button = styled.button`
         font-weight: 700;
         font-family: 'Ubuntu', sans-serif;
     }
-`;
+`
 
 const Portfolio = styled.div`
     width: 100%;
@@ -59,7 +67,7 @@ const Portfolio = styled.div`
     img {
         width: 80%;
     }
-`;
+`
 
 const TopBar = styled.div`
     width: 100%;
@@ -77,15 +85,17 @@ const TopBar = styled.div`
     }
     background: ${props => props.theme.mode.primary};
     color: ${props => props.theme.mode.text};
-`;
+`
 
 const Link = styled.a`
     margin-right: 20px;
-    ${props => props.linkExists === '' && css`
-        text-decoration: line-through;
-        color: ${props.theme.mode.text};
-    `}
-`;
+    ${props =>
+        props.linkExists === '' &&
+        css`
+            text-decoration: line-through;
+            color: ${props.theme.mode.text};
+        `}
+`
 
 const Skill = styled.div`
     position: relative;
@@ -104,7 +114,7 @@ const Skill = styled.div`
     h3 {
         font-size: 16px;
     }
-`;
+`
 
 const Skills = styled.div`
     position: absolute;
@@ -117,7 +127,7 @@ const Skills = styled.div`
     grid-template-columns: repeat(auto-fit, 128px);
     grid-template-rows: repeat(auto-fill, 128px);
     padding: 36px;
-`;
+`
 
 const CardContainer = styled.div`
     position: absolute;
@@ -130,7 +140,7 @@ const CardContainer = styled.div`
     grid-gap: 96px;
     grid-template-columns: repeat(auto-fit, 384px);
     grid-template-rows: repeat(auto-fill, 196px);
-`;
+`
 
 const Card = styled.div`
     width: 384px;
@@ -153,7 +163,8 @@ const Card = styled.div`
                 width: 72px;
             }
         }
-        h2,h3 {
+        h2,
+        h3 {
             margin: 0;
             padding: 0;
             font-weight: 500;
@@ -176,7 +187,23 @@ const Card = styled.div`
         right: 16px;
         bottom: 16px;
     }
-`;
+`
 
+const Content = styled.div`
+    width: 100%;
+    height: 100%;
+    display: flex;
+`
 
-export { Grid, Button, Portfolio, TopBar, Link, Skill, Skills, CardContainer, Card };
+export {
+    Grid,
+    Button,
+    Portfolio,
+    TopBar,
+    Link,
+    Skill,
+    Skills,
+    CardContainer,
+    Card,
+    Content,
+}

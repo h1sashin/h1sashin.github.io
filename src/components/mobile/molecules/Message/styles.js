@@ -1,5 +1,4 @@
-import styled from 'styled-components';
-
+import styled from 'styled-components'
 
 const MessageStyled = styled.div`
     width: 100%;
@@ -9,7 +8,9 @@ const MessageStyled = styled.div`
         div {
             color: white;
         }
-        h2, h3, h4 {
+        h2,
+        h3,
+        h4 {
             margin: 0;
         }
         h2 {
@@ -26,6 +27,6 @@ const MessageStyled = styled.div`
             opacity: 0.7;
         }
     }
-`;
+`
 
-export { MessageStyled };
+export { MessageStyled }

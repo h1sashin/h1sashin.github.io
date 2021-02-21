@@ -1,4 +1,4 @@
-import styled, { keyframes } from 'styled-components';
+import styled, { keyframes } from 'styled-components'
 
 const clickEffect = keyframes`
     0% {
@@ -12,7 +12,7 @@ const clickEffect = keyframes`
         background: white;
         scale(0);
     }
-`;
+`
 
 const Content = styled.div`
     width: 100vw;
@@ -21,7 +21,7 @@ const Content = styled.div`
     align-items: center;
     flex-direction: column;
     justify-content: flex-start;
-`;
+`
 
 const TopBar = styled.div`
     width: 100vw;
@@ -47,9 +47,9 @@ const TopBar = styled.div`
             z-index: 2;
         }
         &:focus:after {
-            animation: ${clickEffect} .5s linear;
+            animation: ${clickEffect} 0.5s linear;
         }
-    
+
         &:after {
             content: '';
             width: 64px;
@@ -60,7 +60,7 @@ const TopBar = styled.div`
             z-index: 1;
         }
     }
-`;
+`
 
 const Form = styled.form`
     height: 100%;
@@ -71,23 +71,25 @@ const Form = styled.form`
     span {
         height: 64px;
         overflow: hidden;
-        display: flex; 
-        border-bottom: rgb(0,0,0,0.1) solid 1px;
+        display: flex;
+        border-bottom: rgb(0, 0, 0, 0.1) solid 1px;
     }
-`;
+`
 
 const Input = styled.input`
     height: 64px;
     overflow: hidden;
-    width: ${props => props.gotLabel ? 'calc(100% - 64px)' : 'calc(100% - 8px)'};
+    width: ${props =>
+        props.gotLabel ? 'calc(100% - 64px)' : 'calc(100% - 8px)'};
     border: none;
-    border-bottom: ${props => props.gotLabel ? 'none' : 'rgb(0,0,0,0.1) solid 1px'};
+    border-bottom: ${props =>
+        props.gotLabel ? 'none' : 'rgb(0,0,0,0.1) solid 1px'};
     font-size: 1rem;
-    padding-left: ${props => props.gotLabel ? '0' : '8px'};
+    padding-left: ${props => (props.gotLabel ? '0' : '8px')};
     &::placeholder {
         font-weight: 300;
     }
-`;
+`
 
 const TextArea = styled.textarea`
     border: none;
@@ -96,7 +98,7 @@ const TextArea = styled.textarea`
     width: calc(100% - 16px);
     font-size: 1rem;
     padding: 24px 8px;
-`;
+`
 
 const Label = styled.label`
     width: 56px;
@@ -109,7 +111,6 @@ const Label = styled.label`
     &::placeholder {
         font-size: 16px;
     }
-`;
+`
 
-export { Content, TopBar, Form, Input, TextArea, Label };
-
+export { Content, TopBar, Form, Input, TextArea, Label }

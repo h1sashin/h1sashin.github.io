@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled from 'styled-components'
 
 const Mailbox = styled.div`
     width: 100%;
@@ -6,7 +6,7 @@ const Mailbox = styled.div`
     background: white;
     color: black;
     position: relative;
-`;
+`
 
 const Home = styled.div`
     width: 100%;
@@ -19,8 +19,7 @@ const Home = styled.div`
         font-size: 16px;
         opacity: 0.75;
     }
-`;
-
+`
 
 const MessageContainer = styled.div`
     padding: 16px;
@@ -29,18 +28,16 @@ const MessageContainer = styled.div`
     display: flex;
     flex-direction: column;
     color: ${props => props.theme.mode.text};
-`;
+`
 
 const Title = styled.h1`
     margin-bottom: 16px;
-`;
+`
 
 const From = styled.header`
     margin-bottom: 8px;
-`;
+`
 
-const Message = styled.article`
+const Message = styled.article``
 
-`;
-
-export { Mailbox, Home, MessageContainer, Title, From, Message };
+export { Mailbox, Home, MessageContainer, Title, From, Message }

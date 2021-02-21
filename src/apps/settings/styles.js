@@ -1,5 +1,5 @@
-import styled, { css } from 'styled-components';
-import { TwitterPicker } from 'react-color';
+import styled, { css } from 'styled-components'
+import { TwitterPicker } from 'react-color'
 
 const Content = styled.div`
     padding-top: 32px;
@@ -8,23 +8,27 @@ const Content = styled.div`
     justify-content: center;
     align-items: flex-start;
     color: ${props => props.theme.mode.text};
-    `;
+`
 
-    const Side = styled.div`
+const Side = styled.div`
     width: 40%;
     max-width: 800px;
-    ${props => props.right && css`
-        margin-left: 16px;
-    `}
-    ${props => props.left && css`
-        margin-right: 16px;
-    `}
-`;
+    ${props =>
+        props.right &&
+        css`
+            margin-left: 16px;
+        `}
+    ${props =>
+        props.left &&
+        css`
+            margin-right: 16px;
+        `}
+`
 
 const Section = styled.div`
     border-radius: ${props => props.theme.style.appRadius}px;
     background: ${props => props.theme.mode.primary};
-    padding: 16px; 
+    padding: 16px;
     width: calc(100% - 32px);
     display: flex;
     flex-direction: column;
@@ -45,9 +49,9 @@ const Section = styled.div`
         margin-bottom: 16px;
     }
     font-weight: 300;
-`;
+`
 
-const Subsection = styled.div`  
+const Subsection = styled.div`
     border-radius: ${props => props.theme.style.appRadius}px;
     background: ${props => props.theme.mode.secondary};
     width: calc(100% - 32px);
@@ -57,13 +61,15 @@ const Subsection = styled.div`
     align-items: center;
     justify-content: space-between;
     margin-bottom: 16px;
-    ${props => props.vertical && css`
-        flex-direction: column;
-    `}
+    ${props =>
+        props.vertical &&
+        css`
+            flex-direction: column;
+        `}
     &:last-child {
         margin-bottom: 0;
     }
-`;
+`
 
 const Picker = styled(TwitterPicker)`
     span {
@@ -71,17 +77,23 @@ const Picker = styled(TwitterPicker)`
         margin: 0;
         width: auto;
     }
-`;
+`
 
-const Mode = styled.span` 
+const Mode = styled.span`
     width: calc(45% - 16px);
     padding: 8px;
-    ${props => props.left && css`
-        border-radius: ${props.theme.style.appRadius}px 0 0 ${props.theme.style.appRadius}px;
-    `}
-    ${props => props.right && css`
-        border-radius: 0 ${props.theme.style.appRadius}px ${props.theme.style.appRadius}px 0;
-    `}
+    ${props =>
+        props.left &&
+        css`
+            border-radius: ${props.theme.style.appRadius}px 0 0
+                ${props.theme.style.appRadius}px;
+        `}
+    ${props =>
+        props.right &&
+        css`
+            border-radius: 0 ${props.theme.style.appRadius}px
+                ${props.theme.style.appRadius}px 0;
+        `}
     background: ${props => props.theme.mode.primary};
     display: flex;
     flex-direction: column;
@@ -106,18 +118,20 @@ const Mode = styled.span`
             border-radius: ${props => props.theme.style.appRadius}px;
         }
     }
-    ${props => props.isActive && css`
-        div {
-            position: absolute;
-            left: -1px;
-            top: -1px;
-            border-radius: ${props.theme.style.appRadius}px;
-            width: calc(100% - 8px);
-            height: calc(100% - 8px);
-            border: 5px solid ${props.color};
-        }
-    `}
-`;
+    ${props =>
+        props.isActive &&
+        css`
+            div {
+                position: absolute;
+                left: -1px;
+                top: -1px;
+                border-radius: ${props.theme.style.appRadius}px;
+                width: calc(100% - 8px);
+                height: calc(100% - 8px);
+                border: 5px solid ${props.color};
+            }
+        `}
+`
 
 const Position = styled.div`
     width: 50%;
@@ -137,7 +151,7 @@ const Position = styled.div`
         background: ${props => props.theme.mode.primary};
         content: '';
     }
-`;
+`
 
 const PositionButton = styled.button`
     position: absolute;
@@ -145,25 +159,43 @@ const PositionButton = styled.button`
     height: 20%;
     border: none;
     border-radius: ${props => props.theme.style.appRadius}px;
-    background: ${props => props.isActive ? props.bg : props.theme.mode.secondary};
+    background: ${props =>
+        props.isActive ? props.bg : props.theme.mode.secondary};
     z-index: 1;
     cursor: pointer;
-    ${props => props.topLeft && css`
-        top: 5%;
-        left: 5%;
-    `}
-    ${props => props.topRight && css`
-        top: 5%;
-        right: 5%;
-    `}
-    ${props => props.bottomLeft && css`
-        bottom: 5%;
-        left: 5%;
-    `}
-    ${props => props.bottomRight && css`
-        bottom: 5%;
-        right: 5%;
-    `}
-`;
+    ${props =>
+        props.topLeft &&
+        css`
+            top: 5%;
+            left: 5%;
+        `}
+    ${props =>
+        props.topRight &&
+        css`
+            top: 5%;
+            right: 5%;
+        `}
+    ${props =>
+        props.bottomLeft &&
+        css`
+            bottom: 5%;
+            left: 5%;
+        `}
+    ${props =>
+        props.bottomRight &&
+        css`
+            bottom: 5%;
+            right: 5%;
+        `}
+`
 
-export { Content, Side, Section, Subsection, Picker, Mode, Position, PositionButton };
+export {
+    Content,
+    Side,
+    Section,
+    Subsection,
+    Picker,
+    Mode,
+    Position,
+    PositionButton,
+}

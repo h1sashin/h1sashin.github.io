@@ -3,53 +3,60 @@
 
 // const { accuWeatherAPIKey } = config;
 
-export const openApp = (app) => {
+export const openApp = app => {
     return {
         type: 'OPEN_APP',
-        payload: { 
-            app
-        }
+        payload: {
+            app,
+        },
     }
 }
 
-export const openAppMobile = (app) => {
+export const openAppMobile = app => {
     return {
         type: 'OPEN_APP_MOBILE',
         payload: {
-            app
-        }
+            app,
+        },
     }
 }
 
-export const minimizeApp = (app) => {
+export const minimizeApp = app => {
     return {
         type: 'MINIMIZE_APP',
-        payload: { app }
+        payload: { app },
     }
 }
 
-export const minimizeAppMobile = (app) => {
+export const minimizeAppMobile = app => {
     return {
         type: 'MINIMIZE_APP_MOBILE',
-        payload: { app }
+        payload: { app },
     }
 }
 
-export const maximizeApp = (app) => {
+export const maximizeApp = app => {
     return {
         type: 'MAXIMIZE_APP',
-        payload: { app }
+        payload: { app },
     }
 }
 
-export const updateSize = (app, e, direction, ref, delta, position) => {
+export const updateSize = (
+    app,
+    e,
+    direction,
+    ref,
+    delta,
+    position,
+) => {
     return {
         type: 'UPDATE_SIZE',
         payload: {
             app,
             ref,
-            position
-        }
+            position,
+        },
     }
 }
 
@@ -59,62 +66,62 @@ export const updatePosition = (app, e, d) => {
         payload: {
             app,
             e,
-            d
-        }
+            d,
+        },
     }
 }
 
-export const switchMode = (mode) => {
+export const switchMode = mode => {
     return {
         type: 'SWITCH_MODE',
-        payload: { mode }
+        payload: { mode },
     }
 }
 
-export const switchStyle = (style) => {
+export const switchStyle = style => {
     return {
         type: 'SWITCH_STYLE',
-        payload: { style }
+        payload: { style },
     }
 }
 
-export const changePrimary = (color) => {
+export const changePrimary = color => {
     return {
         type: 'CHANGE_PRIMARY',
-        payload: { color }
+        payload: { color },
     }
 }
 
-export const updateTaskbarTransparency = (transparency) => {
-    const updatedTransparency = (transparency/2 + 50)/100;
+export const updateTaskbarTransparency = transparency => {
+    const updatedTransparency = (transparency / 2 + 50) / 100
     return {
         type: 'UPDATE_TASKBAR_TRANSPARENCY',
         payload: {
-            transparency: updatedTransparency
-        }
+            transparency: updatedTransparency,
+        },
     }
 }
 
-export const switchIconType = (type) => {
+export const switchIconType = type => {
     return {
         type: 'SWITCH_ICON_TYPE',
-        payload: { type }
-    }
-} 
-
-export const switchDateHide = (hide) => {
-    return {
-        type: 'SWITCH_DATE_HIDE',
-        payload: { hide }
+        payload: { type },
     }
 }
 
-export const switchDateFormat = (format) => {
+export const switchDateHide = hide => {
+    return {
+        type: 'SWITCH_DATE_HIDE',
+        payload: { hide },
+    }
+}
+
+export const switchDateFormat = format => {
     return {
         type: 'SWITCH_DATE_FORMAT',
-        payload: { format }
+        payload: { format },
     }
-} 
+}
 
 export const addNotification = (title, message, id) => {
     return {
@@ -122,31 +129,31 @@ export const addNotification = (title, message, id) => {
         payload: {
             title,
             message,
-            id
-        }
+            id,
+        },
     }
 }
 
-export const removeNotification = (id) => {
+export const removeNotification = id => {
     return {
         type: 'REMOVE_NOTIFICATION',
         payload: {
-            id
-        }
+            id,
+        },
     }
 }
 
-export const changeNotificationsPosition = (position) => {
+export const changeNotificationsPosition = position => {
     return {
         type: 'CHANGE_NOTIFICATIONS_POSITION',
         payload: {
-            position
-        }
+            position,
+        },
     }
 }
 
 export const closeAllApps = () => {
     return {
-        type: 'CLOSE_ALL_APPS'
+        type: 'CLOSE_ALL_APPS',
     }
-} 
+}

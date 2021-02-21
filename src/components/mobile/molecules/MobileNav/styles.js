@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled from 'styled-components'
 
 const Nav = styled.nav`
     width: 100vw;
@@ -10,7 +10,7 @@ const Nav = styled.nav`
     justify-content: center;
     align-items: center;
     z-index: 99999;
-`;
+`
 
 const Container = styled.div`
     width: 100%;
@@ -19,6 +19,6 @@ const Container = styled.div`
     margin: 0;
     padding: 0;
     justify-content: space-around;
-`;
+`
 
-export { Nav, Container };
+export { Nav, Container }

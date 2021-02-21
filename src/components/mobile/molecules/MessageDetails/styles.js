@@ -1,5 +1,4 @@
-import styled from 'styled-components';
-
+import styled from 'styled-components'
 
 const Content = styled.div`
     width: 100%;
@@ -8,7 +7,7 @@ const Content = styled.div`
     align-items: center;
     flex-direction: column;
     justify-content: space-between;
-`;
+`
 
 const TopBar = styled.div`
     width: 100vw;
@@ -34,7 +33,7 @@ const TopBar = styled.div`
         }
         z-index: 2;
     }
-`;
+`
 
 const Message = styled.div`
     padding: 16px;
@@ -57,6 +56,6 @@ const Message = styled.div`
             font-weight: 700;
         }
     }
-`;
+`
 
-export { Content, TopBar, Message };
+export { Content, TopBar, Message }

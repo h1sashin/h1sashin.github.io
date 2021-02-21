@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled from 'styled-components'
 
 export const Desktop = styled.div`
     position: relative;
@@ -11,4 +11,4 @@ export const Desktop = styled.div`
     grid-template-rows: repeat(auto-fill, minmax(60px, 93.75px));
     align-items: center;
     justify-items: center;
-`;
+`

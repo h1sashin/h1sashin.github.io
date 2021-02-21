@@ -1,96 +1,96 @@
 {
-  "name": "unnamed",
-  "version": "0.1.0",
-  "private": true,
-  "homepage": "https://Hisashin7331.github.io",
-  "dependencies": {
-    "@testing-library/jest-dom": "^5.11.5",
-    "@testing-library/react": "^11.1.0",
-    "@testing-library/user-event": "^12.1.10",
-    "as-nav-link": "^0.1.5",
-    "axios": "^0.21.1",
-    "emailjs-com": "^2.6.4",
-    "eslint": "^7.11.0",
-    "gh-pages": "^3.1.0",
-    "hamburger-react": "^2.3.0",
-    "ismobile": "^1.0.1",
-    "masonry-layout": "^4.2.2",
-    "prop-types": "^15.7.2",
-    "react": "^17.0.1",
-    "react-awesome-slider": "^4.1.0",
-    "react-color": "^2.19.3",
-    "react-device-detect": "^1.15.0",
-    "react-dom": "^17.0.1",
-    "react-masonry-css": "^1.0.14",
-    "react-redux": "^7.2.2",
-    "react-responsive": "^8.1.0",
-    "react-rnd": "^10.2.4",
-    "react-router": "^5.2.0",
-    "react-router-dom": "^5.2.0",
-    "react-scripts": "4.0.0",
-    "react-tiger-transition": "^4.1.2",
-    "react-transition-group": "^1.2.1",
-    "reactjs-pdf-reader": "^1.0.12",
-    "redux": "^4.0.5",
-    "redux-thunk": "^2.3.0",
-    "styled-components": "^5.2.1",
-    "uuid": "^8.3.2",
-    "web-vitals": "^0.2.4"
-  },
-  "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject",
-    "storybook": "start-storybook -p 6006 -s public --no-dll",
-    "build-storybook": "build-storybook -s public --no-dll",
-    "predeploy": "npm run build",
-    "deploy": "gh-pages -d build"
-  },
-  "browserslist": {
-    "production": [
-      ">0.2%",
-      "not dead",
-      "not op_mini all"
-    ],
-    "development": [
-      "last 1 chrome version",
-      "last 1 firefox version",
-      "last 1 safari version"
-    ]
-  },
-  "devDependencies": {
-    "@babel/core": "^7.12.3",
-    "@babel/plugin-proposal-class-properties": "^7.12.1",
-    "@storybook/addon-actions": "^6.0.28",
-    "@storybook/addon-essentials": "^6.0.28",
-    "@storybook/addon-links": "^6.0.28",
-    "@storybook/node-logger": "^6.0.28",
-    "@storybook/preset-create-react-app": "^3.1.4",
-    "@storybook/react": "^6.0.28",
-    "babel-eslint": "^10.1.0",
-    "babel-loader": "^8.1.0",
-    "eslint-config-airbnb": "^18.2.0",
-    "eslint-config-prettier": "^6.15.0",
-    "eslint-plugin-import": "^2.21.2",
-    "eslint-plugin-jsx-a11y": "^6.3.0",
-    "eslint-plugin-react": "^7.20.0",
-    "eslint-plugin-react-hooks": "^4.0.0",
-    "husky": "^4.3.0",
-    "lint-staged": "^10.5.0",
-    "prettier": "^2.1.2",
-    "react-is": "^17.0.1"
-  },
-  "husky": {
-    "hooks": {
-      "pre-commit": "lint-staged"
+    "name": "unnamed",
+    "version": "0.1.0",
+    "private": true,
+    "homepage": "https://Hisashin7331.github.io",
+    "dependencies": {
+        "@testing-library/jest-dom": "^5.11.5",
+        "@testing-library/react": "^11.1.0",
+        "@testing-library/user-event": "^12.1.10",
+        "as-nav-link": "^0.1.5",
+        "axios": "^0.21.1",
+        "emailjs-com": "^2.6.4",
+        "eslint": "^7.11.0",
+        "gh-pages": "^3.1.0",
+        "hamburger-react": "^2.3.0",
+        "ismobile": "^1.0.1",
+        "masonry-layout": "^4.2.2",
+        "prop-types": "^15.7.2",
+        "react": "^17.0.1",
+        "react-awesome-slider": "^4.1.0",
+        "react-color": "^2.19.3",
+        "react-device-detect": "^1.15.0",
+        "react-dom": "^17.0.1",
+        "react-masonry-css": "^1.0.14",
+        "react-redux": "^7.2.2",
+        "react-responsive": "^8.1.0",
+        "react-rnd": "^10.2.4",
+        "react-router": "^5.2.0",
+        "react-router-dom": "^5.2.0",
+        "react-scripts": "4.0.0",
+        "react-tiger-transition": "^4.1.2",
+        "react-transition-group": "^1.2.1",
+        "reactjs-pdf-reader": "^1.0.12",
+        "redux": "^4.0.5",
+        "redux-thunk": "^2.3.0",
+        "styled-components": "^5.2.1",
+        "uuid": "^8.3.2",
+        "web-vitals": "^0.2.4"
+    },
+    "scripts": {
+        "start": "react-scripts start",
+        "build": "react-scripts build",
+        "test": "react-scripts test",
+        "eject": "react-scripts eject",
+        "storybook": "start-storybook -p 6006 -s public --no-dll",
+        "build-storybook": "build-storybook -s public --no-dll",
+        "predeploy": "npm run build",
+        "deploy": "gh-pages -d build"
+    },
+    "browserslist": {
+        "production": [
+            ">0.2%",
+            "not dead",
+            "not op_mini all"
+        ],
+        "development": [
+            "last 1 chrome version",
+            "last 1 firefox version",
+            "last 1 safari version"
+        ]
+    },
+    "devDependencies": {
+        "@babel/core": "^7.12.3",
+        "@babel/plugin-proposal-class-properties": "^7.12.1",
+        "@storybook/addon-actions": "^6.0.28",
+        "@storybook/addon-essentials": "^6.0.28",
+        "@storybook/addon-links": "^6.0.28",
+        "@storybook/node-logger": "^6.0.28",
+        "@storybook/preset-create-react-app": "^3.1.4",
+        "@storybook/react": "^6.0.28",
+        "babel-eslint": "^10.1.0",
+        "babel-loader": "^8.1.0",
+        "eslint-config-airbnb": "^18.2.0",
+        "eslint-config-prettier": "^6.15.0",
+        "eslint-plugin-import": "^2.21.2",
+        "eslint-plugin-jsx-a11y": "^6.3.0",
+        "eslint-plugin-react": "^7.20.0",
+        "eslint-plugin-react-hooks": "^4.0.0",
+        "husky": "^4.3.0",
+        "lint-staged": "^10.5.0",
+        "prettier": "^2.1.2",
+        "react-is": "^17.0.1"
+    },
+    "husky": {
+        "hooks": {
+            "pre-commit": "lint-staged"
+        }
+    },
+    "lint-staged": {
+        "*.js": [
+            "prettier --config .prettierrc --write",
+            "eslint --fix",
+            "git add"
+        ]
     }
-  },
-  "lint-staged": {
-    "*.js": [
-      "prettier --config .prettierrc --write",
-      "eslint --fix",
-      "git add"
-    ]
-  }
 }

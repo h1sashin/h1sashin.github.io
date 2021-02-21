@@ -1,22 +1,22 @@
-import React, { useEffect } from 'react';
-import styled from 'styled-components';
-import { connect } from 'react-redux';
-import store from 'store';
-import { removeNotification } from 'actions';
+import React, { useEffect } from 'react'
+import styled from 'styled-components'
+import { connect } from 'react-redux'
+import store from 'store'
+import { removeNotification } from 'actions'
 
 const StyledNotification = styled.div`
     width: 16vw;
     background: red;
     display: flex;
     flex-direction: column;
-    transition: .25s;
+    transition: 0.25s;
     transform: translateX(${props => props.transform});
     margin: 16px;
     border: 1px solid ${props => props.primary};
     border-radius: ${props => props.theme.style.appRadius}px;
     color: ${props => props.theme.mode.text};
     background: ${props => props.theme.mode.secondary};
-`;
+`
 
 const TopBar = styled.div`
     width: calc(100% - 32px);
@@ -24,12 +24,12 @@ const TopBar = styled.div`
     height: 4vh;
     align-items: center;
     padding: 4px 16px;
-`;
+`
 
 const Title = styled.h1`
     font-size: 2vh;
     font-weight: 500;
-`;
+`
 
 const Message = styled.h2`
     width: calc(100% - 32px);
@@ -39,55 +39,69 @@ const Message = styled.h2`
     align-items: flex-start;
     justify-content: flex-start;
     font-weight: 300;
-`;
+`
 
 const Notification = ({ title, message, id, themeState }) => {
-    let inputRef = null;
+    let inputRef = null
 
     const setInputRef = element => {
-        inputRef = element;
+        inputRef = element
     }
 
     let transform = () => {
-        if(themeState.notificationsPosition === 'topLeft' || themeState.notificationsPosition === 'bottomLeft') {
-            return '-150%';
-        } 
-        return '150%';
-        
+        if (
+            themeState.notificationsPosition === 'topLeft' ||
+            themeState.notificationsPosition === 'bottomLeft'
+        ) {
+            return '-150%'
+        }
+        return '150%'
     }
 
     useEffect(() => {
-        inputRef.style.transform = 'translateX(0px)';
-    });
+        inputRef.style.transform = 'translateX(0px)'
+    })
 
     setTimeout(() => {
-        if(inputRef) {
-            inputRef.style.transform = `translateX(${transform()})`;
+        if (inputRef) {
+            inputRef.style.transform = `translateX(${transform()})`
         }
-    }, 9750);
+    }, 9750)
 
     const removeEarlier = () => {
-        inputRef.style.transform = 'translateX(150%)';
+        inputRef.style.transform = 'translateX(150%)'
         setTimeout(() => {
-            store.dispatch(removeNotification(id));
-        }, 250);
+            store.dispatch(removeNotification(id))
+        }, 250)
     }
 
-    return(
-        <StyledNotification ref={setInputRef} primary={themeState.primary} onClick={removeEarlier} transform={transform()}>
+    return (
+        <StyledNotification
+            ref={setInputRef}
+            primary={themeState.primary}
+            onClick={removeEarlier}
+            transform={transform()}
+        >
             <TopBar>
                 <Title>{title}</Title>
             </TopBar>
-            <span style={{ height: '1px', width: 'calc(100% - 32px)', marginLeft: '16px', background: themeState.primary }} />
+            <span
+                style={{
+                    height: '1px',
+                    width: 'calc(100% - 32px)',
+                    marginLeft: '16px',
+                    background: themeState.primary,
+                }}
+            />
             <Message>{message}</Message>
         </StyledNotification>
     )
 }
 
-const mapStateToProps = (state) => {
+const mapStateToProps = state => {
     return {
-        themeState: state.themeReducer
+        themeState: state.themeReducer,
     }
 }
 
-export default connect(mapStateToProps)(Notification);
+export default connect(mapStateToProps)(Notification)

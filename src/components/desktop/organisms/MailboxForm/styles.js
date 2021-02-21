@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled from 'styled-components'
 
 const FormStyled = styled.form`
     width: 100%;
@@ -8,7 +8,7 @@ const FormStyled = styled.form`
     align-items: center;
     position: relative;
     color: ${props => props.theme.mode.text};
-`;
+`
 
 const SubmitButton = styled.input`
     position: absolute;
@@ -19,24 +19,24 @@ const SubmitButton = styled.input`
     width: 96px;
     height: 48px;
     border: none;
-    background: ${props => props.color};;
+    background: ${props => props.color};
     font-size: 16px;
     font-family: 'Ubuntu';
     &:focus {
         outline: 0;
         background: none;
     }
-`;
+`
 
 const DataContainer = styled.div`
     margin-top: 16px;
     width: 90%;
     display: flex;
     justify-content: space-between;
-`;
+`
 
 const Input = styled.span`
-    width: ${props => props.type === 'email' ? '45%' : '90%'};
+    width: ${props => (props.type === 'email' ? '45%' : '90%')};
     height: 32px;
     position: relative;
     margin-top: 16px;
@@ -61,7 +61,7 @@ const Input = styled.span`
             font-size: 2px;
         }
     }
-`;
+`
 
 const Textarea = styled.span`
     width: 90%;
@@ -78,6 +78,6 @@ const Textarea = styled.span`
             outline: 0;
         }
     }
-`;
+`
 
-export { FormStyled, SubmitButton, DataContainer, Input, Textarea };
+export { FormStyled, SubmitButton, DataContainer, Input, Textarea }

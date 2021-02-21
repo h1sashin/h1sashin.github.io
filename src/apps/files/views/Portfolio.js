@@ -1,14 +1,32 @@
-import React from 'react';
-import { ReactComponent as GitHub } from 'assets/img/buttons/github.svg';
-import { ReactComponent as Live } from 'assets/img/buttons/live.svg';
-import { Styled, About, Link } from './styles';
+import React from 'react'
+import { isMobile } from 'react-device-detect'
+import { ReactComponent as GitHub } from 'assets/img/buttons/github.svg'
+import { ReactComponent as Live } from 'assets/img/buttons/live.svg'
+import { Mobile, About, Link } from './stylesMobile'
+import { Desktop, App } from './stylesDesktop'
 
 const Portfolio = ({ image, name, data }) => {
-    const { about, github, live } = data;
+    const { about, github, live } = data
+
+    if (isMobile)
+        return (
+            <Mobile nogrid flex>
+                <img src={image} alt={name} />
+                <About>
+                    <h1>{name}</h1>
+                    <Link href={github} target='_blank'>
+                        <GitHub />
+                    </Link>
+                    <div>{about}</div>
+                    <Link href={live} target='_blank'>
+                        <Live />
+                    </Link>
+                </About>
+            </Mobile>
+        )
     return (
-        <Styled nogrid flex>
-            <img src={image} alt={name} />
-            <About>
+        <Desktop>
+            <App>
                 <h1>{name}</h1>
                 <Link href={github} target='_blank'>
                     <GitHub />
@@ -17,9 +35,10 @@ const Portfolio = ({ image, name, data }) => {
                 <Link href={live} target='_blank'>
                     <Live />
                 </Link>
-            </About>
-        </Styled>
-    );
+            </App>
+            <img src={image} alt={name} />
+        </Desktop>
+    )
 }
 
-export default Portfolio;
+export default Portfolio

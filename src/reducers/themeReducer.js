@@ -6,7 +6,7 @@ const initialState = {
     taskbarTransparency: 0.9,
     dateFormat: '24h',
     dateHide: 'hide',
-    notificationsPosition: 'topRight'
+    notificationsPosition: 'topRight',
 }
 
 const themeReducer = (state = initialState, action) => {
@@ -19,41 +19,41 @@ const themeReducer = (state = initialState, action) => {
         case 'SWITCH_STYLE':
             return {
                 ...state,
-                style: action.payload.style
+                style: action.payload.style,
             }
         case 'CHANGE_PRIMARY':
             return {
                 ...state,
-                primary: action.payload.color
+                primary: action.payload.color,
             }
         case 'UPDATE_TASKBAR_TRANSPARENCY':
             return {
                 ...state,
-                taskbarTransparency: action.payload.transparency
+                taskbarTransparency: action.payload.transparency,
             }
         case 'SWITCH_ICON_TYPE':
             return {
                 ...state,
-                iconType: action.payload.type
+                iconType: action.payload.type,
             }
         case 'SWITCH_DATE_HIDE':
             return {
                 ...state,
-                dateHide: action.payload.hide
+                dateHide: action.payload.hide,
             }
         case 'SWITCH_DATE_FORMAT':
             return {
                 ...state,
-                dateFormat: action.payload.format
+                dateFormat: action.payload.format,
             }
         case 'CHANGE_NOTIFICATIONS_POSITION':
             return {
                 ...state,
-                notificationsPosition: action.payload.position
+                notificationsPosition: action.payload.position,
             }
         default:
-            return state;
+            return state
     }
-};
+}
 
-export default themeReducer;
+export default themeReducer

@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled from 'styled-components'
 
 const ContentStyled = styled.div`
     position: absolute;
@@ -9,6 +9,6 @@ const ContentStyled = styled.div`
     right: 0;
     top: 0;
     display: flex;
-`;
+`
 
-export default ContentStyled;
+export default ContentStyled

@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled from 'styled-components'
 
 const TaskbarStyled = styled.div`
     width: ${props => props.theme.style.width}vw;
@@ -12,7 +12,7 @@ const TaskbarStyled = styled.div`
     color: ${props => props.theme.mode.text};
     justify-content: space-between;
     font-size: 1.5em;
-    transition: .25s;
+    transition: 0.25s;
     transform-style: preserve-3d;
     div {
         height: 100%;
@@ -31,6 +31,6 @@ const TaskbarStyled = styled.div`
         opacity: ${props => props.transparency};
         transform: translateZ(-1px);
     }
-`;
+`
 
-export { TaskbarStyled };
+export { TaskbarStyled }

@@ -1,5 +1,5 @@
 import React from 'react'
-import styled, { css } from 'styled-components';
+import styled, { css } from 'styled-components'
 
 const Button = styled.button`
     height: 24px;
@@ -13,25 +13,33 @@ const Button = styled.button`
     flex-direction: column;
     justify-content: space-around;
     cursor: pointer;
-`;
+`
 
 const HamburgerElement = styled.div`
     height: 2px;
     width: 100%;
     background: ${props => props.theme.mode.text};
     border-radius: 16px;
-    transition: .25s transform ease-in-out;
+    transition: 0.25s transform ease-in-out;
     transform-origin: 0 0;
-    ${props => props.isActive && css`
-        transform: scaleX(0);
-    `}
-    ${props => props.top && props.isActive && css`
-        transform: rotate(45deg) translate(1px, -1px);
-    `}
-    ${props => props.bottom && props.isActive && css`
-        transform: rotate(-45deg) translate(-1px, 1px);
-    `}
-`;
+    ${props =>
+        props.isActive &&
+        css`
+            transform: scaleX(0);
+        `}
+    ${props =>
+        props.top &&
+        props.isActive &&
+        css`
+            transform: rotate(45deg) translate(1px, -1px);
+        `}
+    ${props =>
+        props.bottom &&
+        props.isActive &&
+        css`
+            transform: rotate(-45deg) translate(-1px, 1px);
+        `}
+`
 
 const Hamburger = ({ margin, openMenu, isMenuOpen }) => {
     return (
@@ -43,4 +51,4 @@ const Hamburger = ({ margin, openMenu, isMenuOpen }) => {
     )
 }
 
-export default Hamburger;
+export default Hamburger

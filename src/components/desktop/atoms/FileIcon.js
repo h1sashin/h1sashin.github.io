@@ -19,6 +19,9 @@ const Item = styled.button`
     img {
         height: 50%;
     }
+    span {
+        color: ${props => props.theme.mode.text};
+    }
 `
 
 const iconChooser = (type, extension) => {

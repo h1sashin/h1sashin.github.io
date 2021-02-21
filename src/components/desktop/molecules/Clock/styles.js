@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled from 'styled-components'
 
 const ClockStyled = styled.div`
     font-size: 1em;
@@ -12,6 +12,6 @@ const ClockStyled = styled.div`
     span {
         font-size: 0.5em;
     }
-`;
+`
 
-export { ClockStyled };
+export { ClockStyled }

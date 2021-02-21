@@ -1,5 +1,5 @@
-import { createGlobalStyle } from 'styled-components';
-import wallpaper from 'assets/img/wallpaper.jpg';
+import { createGlobalStyle } from 'styled-components'
+import wallpaper from 'assets/img/wallpaper.jpg'
 
 export const GlobalStyle = createGlobalStyle`
   html, body {
@@ -31,7 +31,7 @@ export const GlobalStyle = createGlobalStyle`
     color: inherit;
   }
 
-`;
+`
 
 export const MobileStyle = createGlobalStyle`
   html {
@@ -70,4 +70,4 @@ export const MobileStyle = createGlobalStyle`
     text-decoration: none;
     color: inherit;
   }
-`;
+`

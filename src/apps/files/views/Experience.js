@@ -1,21 +1,39 @@
-import React from 'react';
-import { Styled, Name, AdditionalContainer, Level, Image } from 'apps/files/views/styles';
+import React from 'react'
+import { isMobile } from 'react-device-detect'
+import {
+    Mobile,
+    Name,
+    AdditionalContainer,
+    Level,
+    Image,
+} from './stylesMobile'
+import { Desktop } from './stylesDesktop'
 
 const Experience = ({ image, name, data }) => {
-    const { year, field } = data;
+    const { year, field } = data
+    if (isMobile)
+        return (
+            <Mobile>
+                <Image src={image} alt={`${name} logo`} />
+                <Name>{name}</Name>
+                <Level>{year}</Level>
+                <AdditionalContainer>
+                    <h2>Field</h2>
+                    <span>- {field}</span>
+                </AdditionalContainer>
+            </Mobile>
+        )
     return (
-        <Styled>
+        <Desktop littleGrid>
             <Image src={image} alt={`${name} logo`} />
             <Name>{name}</Name>
-            <Level>
-                {year}
-            </Level>
+            <Level>{year}</Level>
             <AdditionalContainer>
                 <h2>Field</h2>
                 <span>- {field}</span>
             </AdditionalContainer>
-        </Styled>
+        </Desktop>
     )
 }
 
-export default Experience;
+export default Experience

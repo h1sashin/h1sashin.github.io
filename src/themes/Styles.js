@@ -5,7 +5,7 @@ export const styleRounded = {
     bottom: 1,
     height: 6,
     width: 96,
-    desktopHeight: 92
+    desktopHeight: 92,
 }
 
 export const styleBasic = {
@@ -15,5 +15,5 @@ export const styleBasic = {
     bottom: 0,
     height: 5,
     width: 98,
-    desktopHeight: 95
+    desktopHeight: 95,
 }

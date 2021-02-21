@@ -1,4 +1,4 @@
-import styled, { keyframes } from 'styled-components';
+import styled, { keyframes } from 'styled-components'
 
 const clickEffect = keyframes`
     0% {
@@ -12,7 +12,7 @@ const clickEffect = keyframes`
         background: white;
         scale(0);
     }
-`;
+`
 
 const Button = styled.button`
     height: 100%;
@@ -37,7 +37,7 @@ const Button = styled.button`
     }
 
     &:focus:after {
-        animation: ${clickEffect} .5s linear;
+        animation: ${clickEffect} 0.5s linear;
     }
 
     &:after {
@@ -49,6 +49,6 @@ const Button = styled.button`
         border-radius: 50%;
         z-index: 1;
     }
-`;
+`
 
-export default Button;
+export default Button

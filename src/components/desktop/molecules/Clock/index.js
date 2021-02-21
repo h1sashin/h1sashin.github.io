@@ -1,33 +1,41 @@
-import React, { useEffect, useState } from 'react';
-import { connect } from 'react-redux';
-import { ClockStyled } from './styles';
+import React, { useEffect, useState } from 'react'
+import { connect } from 'react-redux'
+import { ClockStyled } from './styles'
 
 const Clock = ({ dateFormat, dateHide }) => {
-    const [ date, updateDate ] = useState(new Date());
+    const [date, updateDate] = useState(new Date())
     useEffect(() => {
         setInterval(() => {
-            updateDate(new Date());
-        }, 60000);
-    });
+            updateDate(new Date())
+        }, 60000)
+    })
 
-    let hours = date.getHours();
-    let minutes = date.getMinutes();
-    minutes = minutes < 10 ? `0${minutes}` : minutes;
-    let currentTime = null;
-    if(dateFormat === '12h'){
-        let ampm = hours >= 12 ? 'PM' : 'AM';
-        hours %= 12;
-        hours = hours || 12;
-        currentTime = `${hours} : ${minutes} ${ampm}`;
+    let hours = date.getHours()
+    let minutes = date.getMinutes()
+    minutes = minutes < 10 ? `0${minutes}` : minutes
+    let currentTime = null
+    if (dateFormat === '12h') {
+        let ampm = hours >= 12 ? 'PM' : 'AM'
+        hours %= 12
+        hours = hours || 12
+        currentTime = `${hours} : ${minutes} ${ampm}`
     } else {
-        currentTime = `${hours < 10 ? `0${hours}` : hours} : ${minutes}`;
+        currentTime = `${
+            hours < 10 ? `0${hours}` : hours
+        } : ${minutes}`
     }
 
-    const day = date.getDate() > 10 ? date.getDate() : `0${date.getDate()}`;
-    const month = date.getMonth() + 1 > 10 ? date.getMonth() + 1 : `0${date.getMonth() + 1}`;
-    const year = date.getFullYear();
-    const currentDate = `${dateFormat === '12h' ? `${month}.${day}` : `${day}.${month}`}.${year}`
-    return(
+    const day =
+        date.getDate() > 10 ? date.getDate() : `0${date.getDate()}`
+    const month =
+        date.getMonth() + 1 > 10
+            ? date.getMonth() + 1
+            : `0${date.getMonth() + 1}`
+    const year = date.getFullYear()
+    const currentDate = `${
+        dateFormat === '12h' ? `${month}.${day}` : `${day}.${month}`
+    }.${year}`
+    return (
         <ClockStyled>
             {currentTime}
             {dateHide === 'show' && <span>{currentDate}</span>}
@@ -35,11 +43,11 @@ const Clock = ({ dateFormat, dateHide }) => {
     )
 }
 
-const mapStateToProps = (state) => {
+const mapStateToProps = state => {
     return {
         dateFormat: state.themeReducer.dateFormat,
-        dateHide: state.themeReducer.dateHide
+        dateHide: state.themeReducer.dateHide,
     }
 }
 
-export default connect(mapStateToProps)(Clock);
+export default connect(mapStateToProps)(Clock)

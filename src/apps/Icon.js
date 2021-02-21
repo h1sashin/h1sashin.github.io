@@ -1,15 +1,26 @@
-import React from 'react';
-import { connect } from 'react-redux';
-import { openApp, minimizeApp, openAppMobile, minimizeAppMobile } from 'actions';
-import styled, { css } from 'styled-components';
-import { isMobile, isBrowser } from 'react-device-detect';
-import defaultIcon from 'assets/img/apps/default.svg';
+/* eslint-disable no-shadow */
+import React from 'react'
+import { connect } from 'react-redux'
+import {
+    openApp,
+    minimizeApp,
+    openAppMobile,
+    minimizeAppMobile,
+} from 'actions'
+import styled, { css } from 'styled-components'
+import { isMobile, isBrowser } from 'react-device-detect'
+import defaultIcon from 'assets/img/apps/default.svg'
 
 const Button = styled.button`
     height: ${props => props.theme.style.height}vh;
-    width: ${props => props.iconType === 'text' ? 'auto' : `${props.theme.style.height}vh`};
-    ${isBrowser && css`
-        margin-right: ${props => props.iconType === 'text' ? '32px' : '16px'};
+    width: ${props =>
+        props.iconType === 'text'
+            ? 'auto'
+            : `${props.theme.style.height}vh`};
+    ${isBrowser &&
+    css`
+        margin-right: ${props =>
+            props.iconType === 'text' ? '32px' : '16px'};
     `}
     border: none;
     background: transparent;
@@ -21,8 +32,9 @@ const Button = styled.button`
     display: flex;
     align-items: center;
     justify-content: center;
-    
-    ${isMobile && css`
+
+    ${isMobile &&
+    css`
         width: 100%;
         height: 100%;
         flex-direction: column;
@@ -38,73 +50,96 @@ const Button = styled.button`
         outline: 0;
     }
     img {
-        ${isMobile && css`
+        ${isMobile &&
+        css`
             width: 70%;
         `}
-        ${isBrowser && css`
+        ${isBrowser &&
+        css`
             height: 65%;
         `}
     }
-    ${isBrowser && css`
+    ${isBrowser &&
+    css`
         &:hover {
             background: ${props => props.theme.mode.secondary};
         }
-        ${props => props.isActive && css`
-            &:after {
-                content: '';
-                position: absolute;
-                left: 0;
-                bottom: 0;
-                height: 4px;
-                width: 100%;
-                background: ${props.color};
-            }
-        `}
+        ${props =>
+            props.isActive &&
+            css`
+                &:after {
+                    content: '';
+                    position: absolute;
+                    left: 0;
+                    bottom: 0;
+                    height: 4px;
+                    width: 100%;
+                    background: ${props.color};
+                }
+            `}
     `}
-`;
+`
 
-// eslint-disable-next-line no-shadow
-const Icon = ({ isActive, appName, openApp, minimizeApp, color, iconType, icon, openAppMobile, minimizeAppMobile }) => {
+const Icon = ({
+    isActive,
+    appName,
+    openApp,
+    minimizeApp,
+    color,
+    iconType,
+    icon,
+    openAppMobile,
+    minimizeAppMobile,
+}) => {
     const handleToggleApp = () => {
-        if( !isActive ) {
-            if( isBrowser ) {
-                openApp(appName);
+        if (!isActive) {
+            if (isBrowser) {
+                openApp(appName)
             } else {
-                openAppMobile(appName);
+                openAppMobile(appName)
             }
-        } else if( isActive ) {
-            if( isBrowser ) {
-                minimizeApp(appName);
+        } else if (isActive) {
+            if (isBrowser) {
+                minimizeApp(appName)
             } else {
-                minimizeAppMobile(appName);
+                minimizeAppMobile(appName)
             }
         }
     }
 
-    return(
-            <Button onClick={handleToggleApp} isActive={isActive} color={color} iconType={iconType}>
-                {iconType === 'text' ? appName : <img src={icon} alt={appName}/>}
-                {isMobile && <h1>{appName}</h1>}
-            </Button>
-    );
+    return (
+        <Button
+            onClick={handleToggleApp}
+            isActive={isActive}
+            color={color}
+            iconType={iconType}
+        >
+            {iconType === 'text' ? (
+                appName
+            ) : (
+                <img src={icon} alt={appName} />
+            )}
+            {isMobile && <h1>{appName}</h1>}
+        </Button>
+    )
 }
 
 const mapStateToProps = state => {
     return {
         color: state.themeReducer.primary,
-        iconType: state.themeReducer.iconType
+        iconType: state.themeReducer.iconType,
     }
 }
 
 const mapDispatchToProps = dispatch => ({
-    openApp: (app) => dispatch(openApp(app)),
-    minimizeApp: (app) => dispatch(minimizeApp(app)),
-    openAppMobile: (app) => dispatch(openAppMobile(app)),
-    minimizeAppMobile: (app) => dispatch(minimizeAppMobile(app))
-});
+    openApp: app => dispatch(openApp(app)),
+    minimizeApp: app => dispatch(minimizeApp(app)),
+    openAppMobile: app => dispatch(openAppMobile(app)),
+    minimizeAppMobile: app => dispatch(minimizeAppMobile(app)),
+})
 
-export default connect(mapStateToProps, mapDispatchToProps)(Icon);
+export default connect(mapStateToProps, mapDispatchToProps)(Icon)
 
 Icon.defaultProps = {
-    icon: defaultIcon
+    icon: defaultIcon,
 }

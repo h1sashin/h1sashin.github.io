@@ -1,6 +1,6 @@
 const initialState = {
-    notifications: []
-};
+    notifications: [],
+}
 
 const notificationReducer = (state = initialState, action) => {
     switch (action.type) {
@@ -11,19 +11,21 @@ const notificationReducer = (state = initialState, action) => {
                     {
                         title: action.payload.title,
                         message: action.payload.message,
-                        id: action.payload.id
-                    }
-                ]
+                        id: action.payload.id,
+                    },
+                ],
             }
         case 'REMOVE_NOTIFICATION':
             return {
                 notifications: [
-                    ...state.notifications.filter(item => item.id !== action.payload.id)
-                ]
+                    ...state.notifications.filter(
+                        item => item.id !== action.payload.id,
+                    ),
+                ],
             }
         default:
-            return state;
+            return state
     }
-};
+}
 
-export default notificationReducer;
+export default notificationReducer

@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled from 'styled-components'
 
 const BottomBar = styled.div`
     height: 64px;
@@ -9,6 +9,6 @@ const BottomBar = styled.div`
     align-items: center;
     justify-content: center;
     position: relative;
-`;
+`
 
-export default BottomBar;
+export default BottomBar

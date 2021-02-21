@@ -1,24 +1,53 @@
-import React from 'react';
-import { Styled, Name, AdditionalContainer, Level, Image } from 'apps/files/views/styles';
-
+import React from 'react'
+import { isMobile } from 'react-device-detect'
+import {
+    Mobile,
+    Name,
+    AdditionalContainer,
+    Level,
+    Image,
+} from './stylesMobile'
+import { Desktop } from './stylesDesktop'
 
 const Certificates = ({ image, name, data }) => {
-    const { acquired, including } = data;
+    const { acquired, including } = data
+    if (isMobile)
+        return (
+            <Mobile>
+                <Image src={image} alt={`${name} logo`} tooWide />
+                <Name>{name}</Name>
+                <Level>{acquired}</Level>
+                <AdditionalContainer>
+                    <h2>Including</h2>
+                    {including.map(item => {
+                        return (
+                            <span key={item}>
+                                - {item}
+                                <br />
+                            </span>
+                        )
+                    })}
+                </AdditionalContainer>
+            </Mobile>
+        )
     return (
-        <Styled>
-            <Image src={image} alt={`${name} logo`} tooWide/>
+        <Desktop littleGrid>
+            <Image src={image} alt={`${name} logo`} tooWide />
             <Name>{name}</Name>
-            <Level>
-                {acquired}
-            </Level>
+            <Level>{acquired}</Level>
             <AdditionalContainer>
                 <h2>Including</h2>
-                {including.map((item) => {
-                    return <span key={item}>- {item}<br /></span>
+                {including.map(item => {
+                    return (
+                        <span key={item}>
+                            - {item}
+                            <br />
+                        </span>
+                    )
                 })}
             </AdditionalContainer>
-        </Styled>
+        </Desktop>
     )
 }
 
-export default Certificates;
+export default Certificates

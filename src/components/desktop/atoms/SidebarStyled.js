@@ -1,5 +1,5 @@
-import styled, { css } from 'styled-components';
-import main from 'assets/img/places/dir.svg';
+import styled, { css } from 'styled-components'
+import main from 'assets/img/places/dir.svg'
 
 const SidebarStyled = styled.div`
     left: 0;
@@ -14,16 +14,18 @@ const SidebarStyled = styled.div`
     border-radius: 0 0 0 ${props => props.theme.style.appRadius}px;
     color: ${props => props.theme.mode.text};
 
-    ${props => props.settings && css`
-        padding: 0; 
-        width: 64px;
-        height: 100%;
-        overflow: hidden;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-    `}
+    ${props =>
+        props.settings &&
+        css`
+            padding: 0;
+            width: 64px;
+            height: 100%;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        `}
 
     h1, h3 {
         display: flex;
@@ -52,6 +54,6 @@ const SidebarStyled = styled.div`
         font-size: 1em;
         margin-left: 10px;
     }
-`;
+`
 
-export default SidebarStyled;
+export default SidebarStyled
