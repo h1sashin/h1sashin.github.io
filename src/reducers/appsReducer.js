@@ -43,17 +43,6 @@ const initialState = {
         appName: 'console',
         version: '0.1',
     },
-    weather: {
-        isOpen: false,
-        isMinimized: false,
-        isMaximized: false,
-        x: 100,
-        y: 100,
-        width: 960,
-        height: 540,
-        appName: 'weather',
-        version: '0.1',
-    },
 }
 
 let prevState = {}
