@@ -11,7 +11,20 @@ const Portfolio = ({ image, name, data }) => {
     if (isMobile)
         return (
             <Mobile nogrid flex>
-                <img src={image} alt={name} />
+                {image === '' ? (
+                    <h1
+                        style={{
+                            height: '50%',
+                            display: 'flex',
+                            justifyContent: 'center',
+                            alignItems: 'center',
+                        }}
+                    >
+                        No preview available
+                    </h1>
+                ) : (
+                    <img src={image} alt={name} />
+                )}
                 <About>
                     <h1>{name}</h1>
                     <Link href={github} target='_blank'>
@@ -36,7 +49,20 @@ const Portfolio = ({ image, name, data }) => {
                     <Live />
                 </Link>
             </App>
-            <img src={image} alt={name} />
+            {image === '' ? (
+                <h1
+                    style={{
+                        height: '50%',
+                        display: 'flex',
+                        justifyContent: 'center',
+                        alignItems: 'center',
+                    }}
+                >
+                    No preview available
+                </h1>
+            ) : (
+                <img src={image} alt={name} />
+            )}
         </Desktop>
     )
 }

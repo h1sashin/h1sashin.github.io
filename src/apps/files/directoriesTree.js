@@ -7,7 +7,6 @@ import zse from 'assets/img/logos/zse.png'
 import clevercode from 'assets/img/logos/clevercode.png'
 import zeto from 'assets/img/logos/zetosa.png'
 import cke from 'assets/img/logos/cke.png'
-import portfolio from 'assets/img/portfolio/portfolio.png'
 import weatherApp from 'assets/img/portfolio/weather-app.png'
 import Experience from './views/Experience'
 import Certificates from './views/Certificates'
@@ -28,20 +27,6 @@ export const directoriesTree = [
                 type: 'directory',
                 extension: 'not applicable',
                 children: [
-                    {
-                        path: 'main/portfolio/portfolio.lnk',
-                        name: 'portfolio',
-                        type: 'file',
-                        extension: '.lnk',
-                        image: portfolio,
-                        component: <Portfolio />,
-                        data: {
-                            about: `My first React project, I've spent a lot of time developing it to make it as good and functional as possible`,
-                            github:
-                                'https://github.com/Hisashin7331/Hisashin7331.github.io',
-                            live: 'https://hisashin7331.github.io/',
-                        },
-                    },
                     {
                         path: 'main/portfolio/weather-app.lnk',
                         name: 'weather-app',
@@ -74,6 +59,7 @@ export const directoriesTree = [
                         component: <Skills />,
                         data: {
                             level: 4,
+                            additional: ['HTML5'],
                         },
                     },
                     {
@@ -85,7 +71,7 @@ export const directoriesTree = [
                         component: <Skills />,
                         data: {
                             level: 4,
-                            additional: ['SASS/SCSS'],
+                            additional: ['SASS/SCSS', 'RWD'],
                         },
                     },
                     {
@@ -97,7 +83,12 @@ export const directoriesTree = [
                         component: <Skills />,
                         data: {
                             level: 4,
-                            additional: ['ES6'],
+                            additional: [
+                                'ES6',
+                                'async/await',
+                                'Promises',
+                                'array methods',
+                            ],
                         },
                     },
                     {
@@ -113,6 +104,7 @@ export const directoriesTree = [
                                 'styled components',
                                 'router',
                                 'redux',
+                                'prop types',
                             ],
                         },
                     },
